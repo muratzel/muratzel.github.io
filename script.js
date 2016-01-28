@@ -19,6 +19,8 @@ class Monster extends Parse.Object {
     }
 }
 
+Parse.Object.registerSubclass('Monster', Monster);
+
 var monster = Monster.spawn(200);
 alert(monster.get('strength'));  // Displays 200.
 alert(monster.sound); // Displays Rawr.
