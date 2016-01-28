@@ -1,20 +1,26 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-var User = Parse.Object.extend("User",{
-    
-    initialize: function(attrs,options,username,password){
-        this.username = username;
-        this.password = password;
-    },
-    
-    verifyPassword: function(password){
-        return this.password = password;
-    }
-});
+class Monster extends Parse.Object {
+  constructor() {
+    // Pass the ClassName to the Parse.Object constructor
+    super('Monster');
+    // All other initialization
+    this.sound = 'Rawr';
+  }
 
-var admin = new User(null,null,'muratzel','muradvlad16');
-alert(admin.get('username'));
-alert(admin.get('muradvlad16'));
+  hasSuperHumanStrength() {
+    return this.get('strength') > 18;
+  }
+
+  static spawn(strength) {
+    var monster = new Monster();
+    monster.set('strength', strength);
+    return monster;
+  }
+}
+
+alert(monster.get('strength'));  // Displays 200.
+alert(monster.sound); // Displays Rawr.
 
 
 
