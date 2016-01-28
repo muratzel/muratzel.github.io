@@ -19,7 +19,7 @@ class Monster extends Parse.Object {
   }
 }
 
-var monster = new Monster.spawn(200);
+var monster = Monster.spawn(200);
 alert(monster.get('strength'));  // Displays 200.
 alert(monster.sound); // Displays Rawr.
 
