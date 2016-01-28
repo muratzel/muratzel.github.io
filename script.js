@@ -21,8 +21,8 @@ var Monster = Parse.Object.extend("Monster", {
 var User = Parse.Object.extend("User", {
 
     initialize: function (attrs, options) {
-        this.username = "admin";
-        this.password = "vladmurad16";
+        this.username = "admin"
+        this.password = "vladmurad16"
     },
 
     checkPassword: function (password) {
@@ -30,7 +30,8 @@ var User = Parse.Object.extend("User", {
     }
 });
 
-var admin
+var admin = new User();
+alert(admin.username);
 
 
 
