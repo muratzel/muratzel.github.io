@@ -1,6 +1,6 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-var User = Parse.Object.Extend("User",{
+var User = Parse.Object.extend("User",{
     
     initialize: function(attrs,options,username,password){
         this.username = username;
@@ -12,7 +12,7 @@ var User = Parse.Object.Extend("User",{
     }
 });
 
-var admin = new User('muratzel','muradvlad16');
+var admin = new User(null,null,'muratzel','muradvlad16');
 alert(admin.get('username'));
 alert(admin.get('muradvlad16'));
 
