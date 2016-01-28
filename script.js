@@ -18,15 +18,19 @@ var Monster = Parse.Object.extend("Monster", {
     }
 });
 
-var monster = Monster.spawn(200);
-alert(monster.get('strength'));  // Displays 200.
-alert(monster.sound); // Displays Rawr.
+var User = Parse.Object.extend("User", {
 
-Parse.Object.registerSubclass('Monster', Monster);
+    initialize: function (attrs, options) {
+        this.username = "admin";
+        this.password = "vladmurad16";
+    },
 
-var monster = Monster.spawn(200);
-alert(monster.get('strength'));  // Displays 200.
-alert(monster.sound); // Displays Rawr.
+    checkPassword: function (password) {
+        return this.password = password;
+    }
+});
+
+var admin
 
 
 
