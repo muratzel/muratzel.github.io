@@ -12,4 +12,9 @@ var User = Parse.Object.Extend("User",{
     }
 });
 
+var admin = new User('muratzel','muradvlad16');
+alert(admin.get('username'));
+alert(admin.get('muradvlad16'));
+
+
 
