@@ -1,23 +1,23 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-class Monster extends Parse.Object {
-  constructor() {
-    // Pass the ClassName to the Parse.Object constructor
-    super('Monster');
-    // All other initialization
-    this.sound = 'Rawr';
+// A complex subclass of Parse.Object
+var Monster = Parse.Object.extend("Monster", {
+  // Instance methods
+  hasSuperHumanStrength: function () {
+    return this.get("strength") > 18;
+  },
+  // Instance properties go in an initialize method
+  initialize: function (attrs, options) {
+    this.sound = "Rawr"
   }
-
-  hasSuperHumanStrength() {
-    return this.get('strength') > 18;
-  }
-
-  static spawn(strength) {
+}, {
+  // Class methods
+  spawn: function(strength) {
     var monster = new Monster();
-    monster.set('strength', strength);
+    monster.set("strength", strength);
     return monster;
   }
-}
+});
 
 var monster = Monster.spawn(200);
 alert(monster.get('strength'));  // Displays 200.
