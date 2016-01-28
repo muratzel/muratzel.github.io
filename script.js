@@ -10,7 +10,9 @@ var Monster = Parse.Object.extend("Monster", {
   initialize: function (attrs, options) {
     this.sound = "Rawr"
   }
-});
+},
+{}
+);
 
 var monster = Monster.spawn(200);
 alert(monster.get('strength'));  // Displays 200.
