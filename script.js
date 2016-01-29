@@ -68,7 +68,6 @@ function displaySuccessfulSignin() {
 
 function populateScheduleList() {
     var query = new Parse.Query(Schedule);
-    query.equalTo("username", "ovmurad");
     query.find(
         {
             success: function (schedules) {
