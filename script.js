@@ -71,8 +71,6 @@ createBtn.click(
             newUser.set("email", email);
             newUser.signUp(null, {
                 success: function (user) {
-                    usernameExistsDiv.addClass("hidden");
-                    passwordsDontMatchDiv.addClass("hidden");
                     displaySuccessfulSignin();
                 },
                 error: function (user, error) {
@@ -87,12 +85,12 @@ createBtn.click(
 
     }
 );
-backBtn.click(displayLoginForm);
-continueBtn.click(displayPage);
+backBtn.click(location.reload);
+continueBtn.click(location.reload);
 logoutBtn.click(
     function () {
         Parse.User.logOut();
-        displayPage();
+        location.reload();
     }
 );
 
