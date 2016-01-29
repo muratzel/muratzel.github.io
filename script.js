@@ -8,14 +8,14 @@ var mainDiv = document.getElementById("mainDiv");
 var currentUser = new Parse.User.current();
 
 if (currentUser) {
-    loginForm.style.visibility = "hidden";
-    signupForm.style.visibility = "hidden";
-    mainDiv.style.visibility = "visible";
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    mainDiv.style.display = "initial";
 }
 else {
-    loginForm.style.visibility = "visible";
-    signupForm.style.visibility = "hidden";
-    mainDiv.style.visibility = "hidden";
+    loginForm.style.display = "initial";
+    signupForm.style.display = "none";
+    mainDiv.style.display = "none";
 }
 
 
