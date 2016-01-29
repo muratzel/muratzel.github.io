@@ -1,6 +1,16 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
+var Schedule = Parse.Object.extend("Schedule", 
+    {
+        initialize: function (title, username) {
+            this.title = title
+            this.username = username
+        }
+    },
+    {
 
+    }
+);
 
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
@@ -15,7 +25,7 @@ var signupBtn = $('#signupBtn');
 var createBtn = $('#createBtn');
 var backBtn = $('#backBtn');
 var continueBtn = $('#continueBtn');
-var createScheduleBtn = $('createScheduleBtn');
+var createScheduleBtn = $('#createScheduleBtn');
 var logoutBtn = $('#logoutBtn');
 
 function displayPage() {
@@ -114,6 +124,17 @@ continueBtn.click(function () {
 createScheduleBtn.click(
     function () {
         alert('caca');
+        var newSchedule = new Schedule("title", "vlad");
+        newSchedule.save(null,
+        {
+            success: function (scheduleId) {
+                alert('Da');
+            },
+            error: function (scheduleId, error) {
+                alert('Nu');
+            }
+        }
+        );
     }
 );
 logoutBtn.click(
