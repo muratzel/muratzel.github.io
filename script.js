@@ -32,6 +32,9 @@ function deleteSchedules() {
         }
     );
 }
+
+deleteSchedules();
+
 function displayPage() {
     loginForm.addClass("hidden")
     signupForm.addClass("hidden");
