@@ -68,7 +68,7 @@ function displaySuccessfulSignin() {
 
 function populateScheduleList() {
     var query = new Parse.Query(Schedule);
-    query.equalTo("username", Parse.User.current().get("username"));
+    query.equalTo("username", "ovmurad");
     query.find(
         {
             success: function (schedules) {
@@ -146,7 +146,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (scheduleId) {
-                scheduleList.append("<a href='#' class = 'list-group-item'>" + newSchedule.title + "</a>");
+                scheduleList.append("<a href='#' class = 'list-group-item'>" + newSchedule.username + "</a>");
             },
             error: function (scheduleId, error) {
 
