@@ -4,7 +4,7 @@ var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
 var passwordsDontMatchDiv = $('#passwordsDontMatchDiv');
-var successfulSigninDiv = $('#successfulSignInDiv');
+var successfulSigninDiv = $('#successfulSigninDiv');
 
 var loginBtn = $('#loginBtn');
 var signupBtn = $('#signupBtn');
@@ -63,7 +63,13 @@ createBtn.click(
             newUser.set("username", username);
             newUser.set("password", password);
             newUser.set("email", email);
-            newUser.save();
+            newUser.signUp(null, {
+                success: function (user) {
+                },
+                error: function (user, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            });
             displaySuccessfulSignin();
         }
 
