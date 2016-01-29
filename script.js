@@ -9,6 +9,10 @@ var passwordsDontMatchDiv = $('#passwordsDontMatchDiv');
 var successfulSigninDiv = $('#successfulSigninDiv');
 var usernameExistsDiv = $('#usernameExistsDiv');
 var wrongCredentialsDiv = $('#wrongCredentialsDiv');
+var noScheduleSelectedDiv = $('#noScheduleSelectedDiv');
+var scheduleSelectedDiv = $('#scheduleSelectedDiv');
+var scheduleTitleP = $('#scheduleTitleP');
+var scheduleDescriptionP = $('#scheduleDescriptionP');
 
 var loginBtn = $('#loginBtn');
 var signupBtn = $('#signupBtn');
@@ -76,11 +80,25 @@ function populateScheduleList() {
         {
             success: function (schedules) {
                 for (var i = 0; i < schedules.length; i++) {
-                    scheduleList.append("<a href='#' id='schedule_" + schedules[i].id + "' onclick = 'displaySchedule(this);' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
+                    scheduleList.append("<a href='#' id='" + schedules[i].id + "' onclick = 'displaySchedule(`" + schedules[i].id + "`);' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
                 }
             },
             error: function (schedules, error) {
 
+            }
+        }
+    );
+}
+
+function displaySchedule(id) {
+    var query = new Parse.Query(Schedule);
+    query.get(id,
+        {
+            success: function (schedule) {
+                noScheduleSelectedDiv.addClass("hidden");
+                scheduleSelectedDiv.removeClass("hidden");
+                scheduleTitleP.html(schedule.get('title'));
+                scheduleDescriptionP.html(schedule.get('desciption'));
             }
         }
     );
@@ -152,7 +170,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (schedule) {
-                scheduleList.append("<a href='#' id='schedule_" + newSchedule.id + "' onclick = 'displaySchedule(this);' class = 'list-group-item'>" + schedule.get('title') + "</a>");
+                scheduleList.append("<a href='#' id='" + newSchedule.id + "' onclick = 'displaySchedule(`" + schedules[i].id + "`);' class = 'list-group-item'>" + schedule.get('title') + "</a>");
             },
             error: function (schedule, error) {
 
