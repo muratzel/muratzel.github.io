@@ -76,7 +76,7 @@ function populateScheduleList() {
         {
             success: function (schedules) {
                 for (var i = 0; i < schedules.length; i++) {
-                    scheduleList.append("<a href='#' id='schedule" + schedules[i].id + "' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
+                    scheduleList.append("<a href='#' id='schedule_" + schedules[i].id + "' onclick = 'displaySchedule(this);' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
                 }
             },
             error: function (schedules, error) {
@@ -152,7 +152,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (schedule) {
-                scheduleList.append("<a href='#' id='schedule"+newSchedule.id+"' class = 'list-group-item'>" + schedule.get('title') + "</a>");
+                scheduleList.append("<a href='#' id='schedule_" + newSchedule.id + "' onclick = 'displaySchedule(this);' class = 'list-group-item'>" + schedule.get('title') + "</a>");
             },
             error: function (schedule, error) {
 
