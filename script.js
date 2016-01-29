@@ -2,7 +2,8 @@ Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdic
 
 var Schedule = Parse.Object.extend("Schedule", 
     {
-        initialize: function (username) {
+        initialize: function (title, username) {
+            this.title = title
             this.username = username
         }
     }
@@ -117,6 +118,21 @@ backBtn.click(function () {
 continueBtn.click(function () {
     location.reload();
 });
+createScheduleBtn.click(
+    function () {
+        var newSchedule = new Schedule("title", Parse.User.current().username);
+        newSchedule.save(null,
+        {
+            success: function (scheduleId) {
+                alert('Da');
+            },
+            error: function (scheduleId, error) {
+                alert('Nu');
+            }
+        }
+        );
+    }
+);
 logoutBtn.click(
     function () {
         Parse.User.logOut();
