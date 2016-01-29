@@ -1,5 +1,13 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
+var Schedule = Parse.Object.extend("Schedule", 
+    {
+        initialize: function (username) {
+            this.username = username
+        }
+    }
+);
+
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
@@ -13,6 +21,7 @@ var signupBtn = $('#signupBtn');
 var createBtn = $('#createBtn');
 var backBtn = $('#backBtn');
 var continueBtn = $('#continueBtn');
+var createScheduleBtn = $('createScheduleBtn');
 var logoutBtn = $('#logoutBtn');
 
 function displayPage() {
