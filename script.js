@@ -70,7 +70,9 @@ createBtn.click(
             newUser.set("email", email);
             newUser.signUp(null, {
                 success: function (user) {
-
+                    usernameExistsDiv.addClass("hidden");
+                    passwordsDontMatchDiv.addClass("hidden");
+                    displaySuccessfulSignin();
                 },
                 error: function (user, error) {
                     if (error.code == 202) {
@@ -79,9 +81,6 @@ createBtn.click(
                     }
                 }
             });
-            usernameExistsDiv.addClass("hidden");
-            passwordsDontMatchDiv.addClass("hidden");
-            displaySuccessfulSignin();
             return;
         }
 
