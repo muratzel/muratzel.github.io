@@ -29,8 +29,13 @@ function displaySignupForm() {
 }
 
 loginBtn.click(displayPage);
-signupBtn.click(displaySignupForm );
-createBtn.click(displayPage);
+signupBtn.click(displaySignupForm);
+createBtn.click(
+    function () {
+        var username = $("#username").value;
+        alert(username);
+    }
+);
 backBtn.click(displayLoginForm);
 
 var currentUser = Parse.User.current();
