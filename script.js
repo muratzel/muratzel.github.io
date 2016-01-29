@@ -20,6 +20,18 @@ var logoutBtn = $('#logoutBtn');
 
 var scheduleList = $('#scheduleList');
 
+function deleteSchedules() {
+    var query = new Parse.Query(Schedule);
+    query.find(
+        {
+            success: function (schedules) {
+                for (var i = 0; i < schedules.length; i++) {
+                    schedules[i].destroy();
+                }
+            }
+        }
+    );
+}
 function displayPage() {
     loginForm.addClass("hidden")
     signupForm.addClass("hidden");
