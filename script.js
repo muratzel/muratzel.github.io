@@ -5,6 +5,7 @@ var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
 var passwordsDontMatchDiv = $('#passwordsDontMatchDiv');
 var successfulSigninDiv = $('#successfulSigninDiv');
+var usernameExistsDiv = $('#usernameExistsDiv');
 
 var loginBtn = $('#loginBtn');
 var signupBtn = $('#signupBtn');
@@ -17,6 +18,7 @@ function displayPage() {
     signupForm.addClass("hidden");
     mainDiv.removeClass("hidden");
     passwordsDontMatchDiv.addClass("hidden");
+    usernameExistsDiv.addClass("hidden");
     successfulSigninDiv.addClass("hidden");
 }
 
@@ -25,6 +27,7 @@ function displayLoginForm() {
     signupForm.addClass("hidden");
     mainDiv.addClass("hidden");
     passwordsDontMatchDiv.addClass("hidden");
+    usernameExistsDiv.addClass("hidden");
     successfulSigninDiv.addClass("hidden");
 }
 
@@ -33,6 +36,7 @@ function displaySignupForm() {
     signupForm.removeClass("hidden");
     mainDiv.addClass("hidden");
     passwordsDontMatchDiv.addClass("hidden");
+    usernameExistsDiv.addClass("hidden");
     successfulSigninDiv.addClass("hidden");
 }
 
@@ -41,6 +45,7 @@ function displaySuccessfulSignin() {
     signupForm.addClass("hidden");
     mainDiv.addClass("hidden");
     passwordsDontMatchDiv.addClass("hidden");
+    usernameExistsDiv.addClass("hidden");
     successfulSigninDiv.removeClass("hidden");
 }
 
@@ -65,13 +70,19 @@ createBtn.click(
             newUser.set("email", email);
             newUser.signUp(null, {
                 success: function (user) {
-                    alert("YYYYY");
+
                 },
                 error: function (user, error) {
-                    alert("Error: " + error.code + " " + error.message);
+                    if (error.code == 202) {
+                        $('#username').addClass('has-error');
+                        usernameExistsDiv.removeClass('hidden');
+                    }
                 }
             });
+            usernameExistsDiv.addClass("hidden");
+            passwordsDontMatchDiv.addClass("hidden");
             displaySuccessfulSignin();
+            return;
         }
 
     }
