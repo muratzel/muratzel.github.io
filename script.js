@@ -38,7 +38,7 @@ createBtn.click(
 
         if (password.localeCompare(passwordConfirm)) {
             $('#passwordConfirmDiv').addClass('has-error');
-            $('#passwordConfirm').popover();
+            $('#passwordsDontMatchDiv').removeClass('hidden');
             return;
         }
 
