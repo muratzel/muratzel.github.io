@@ -66,6 +66,23 @@ function displaySuccessfulSignin() {
     successfulSigninDiv.removeClass("hidden");
 }
 
+function populateScheduleList() {
+    var query = new Parse.Query(Schedule);
+    query.equalTo('username', Parse.User.current().username);
+    query.find(
+        {
+            success: function (schedules) {
+                for (var i = 0; i < schedules.length; i++) {
+                    scheduleList.append('<a href="#" class = "group-list-item">' + schedules[i].title + '</a>');
+                }
+            },
+            error: function (schedules, error) {
+
+            }
+        }
+    );
+}
+
 loginBtn.click(
     function () {
         var username = $("#usernameLogin").val();
@@ -129,7 +146,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (scheduleId) {
-                scheduleList.append("<li class = 'list-group-item'>" + newSchedule.title + "</li>");
+                scheduleList.append("<a href='#' class = 'list-group-item'>" + newSchedule.title + "</a>");
             },
             error: function (scheduleId, error) {
 
