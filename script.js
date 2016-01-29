@@ -12,6 +12,7 @@ var signupBtn = $('#signupBtn');
 var createBtn = $('#createBtn');
 var backBtn = $('#backBtn');
 var continueBtn = $('#continueBtn');
+var logoutBtn = $('#logoutBtn');
 
 function displayPage() {
     loginForm.addClass("hidden")
@@ -88,6 +89,12 @@ createBtn.click(
 );
 backBtn.click(displayLoginForm);
 continueBtn.click(displayPage);
+logoutBtn.click(
+    function () {
+        Parse.User.logOut();
+        displayPage();
+    }
+);
 
 var currentUser = Parse.User.current();
 
