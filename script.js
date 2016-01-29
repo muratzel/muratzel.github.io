@@ -1,38 +1,20 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-var Monster = Parse.Object.extend("Monster", {
-    // Instance methods
-    hasSuperHumanStrength: function () {
-        return this.get("strength") > 18;
-    },
-    // Instance properties go in an initialize method
-    initialize: function (attrs, options) {
-        this.sound = "Rawr"
-    }
-}, {
-    // Class methods
-    spawn: function (strength) {
-        var monster = new Monster();
-        monster.set("strength", strength);
-        return monster;
-    }
-});
+var loginForm = document.getElementById("loginForm");
+var signupForm = document.getElementById("signupForm");
+var mainDiv = document.getElementById("loginForm");
 
-var User = Parse.Object.extend("User", {
+var currentUser = Parse.User.current();
 
-    initialize: function (username, password) {
-        this.username = username
-        this.password = password
-    },
-
-    checkPassword: function (password) {
-        return this.password = password;
-    }
-});
-
-var admin = new User('admin','vladmurad16');
-alert(admin.username);
-alert(admin.password);
-
+if (currentUser) {
+    loginForm.style.visibility = "hidden";
+    signupForm.style.visibility = "hidden";
+    mainDiv.style.visibility = "visible";
+}
+else {
+    loginForm.style.visibility = "visible";
+    signupForm.style.visibility = "hidden";
+    mainDiv.style.visibility = "hidden";
+}
 
 
