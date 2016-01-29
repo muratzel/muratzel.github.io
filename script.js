@@ -122,6 +122,7 @@ continueBtn.click(function () {
     location.reload();
 });
 createScheduleBtn.click(
+    alert('caca');
     function () {
         var newSchedule = new Schedule("title", "vlad");
         newSchedule.save(null,
