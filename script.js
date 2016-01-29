@@ -33,7 +33,15 @@ signupBtn.click(displaySignupForm);
 createBtn.click(
     function () {
         var username = $("#username").val();
-        alert(username);
+        var password = $('#password').val();
+        var passwordConfirm = $('#passwordConfirm').val();
+        var email = $('#email').val();
+
+        if (password.localeCompare(passwordConfirm)) {
+            $('#passwordConfirmDiv').addClass('has-error');
+            return;
+        }
+
     }
 );
 backBtn.click(displayLoginForm);
