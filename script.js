@@ -114,17 +114,6 @@ continueBtn.click(function () {
 createScheduleBtn.click(
     function () {
         alert('caca');
-        var newSchedule = new Schedule("title", "vlad");
-        newSchedule.save(null,
-        {
-            success: function (scheduleId) {
-                alert('Da');
-            },
-            error: function (scheduleId, error) {
-                alert('Nu');
-            }
-        }
-        );
     }
 );
 logoutBtn.click(
