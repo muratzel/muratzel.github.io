@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </form>
-                <form method = "POST" role = "form" id="signupForm" class="form-horizontal">
+                <form role = "form" id="signupForm" class="form-horizontal">
                     <div class="col-md-offset-3 col-md-6 well">
                         <div class="form-group">
                             <label for="username" class="control-label">Username</label>
@@ -64,7 +64,7 @@
                 </form>
                 <div id="mainDiv">
                     <ul id="menu" class= "list-inline list-group">
-                        <li><button type="button" id="createScheduleBtn" data-toggle ="modal" data-target="#createScheduleModal" class="btn btn-lg">Create Schedule</button></li>
+                        <li><button type="button" data-toggle ="modal" data-target="#createScheduleModal" class="btn btn-lg">Create Schedule</button></li>
                         <li><button type= "button" id="logoutBtn" class ="btn btn-lg">Logout</button></li>
                     </ul>
                     <div id="mainContainer">
@@ -83,10 +83,19 @@
                                         <h3 class="modal-title">Create New Schedule</h3>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Will add schedule information</p>
+                                        <form role = "form" class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="scheduleTitle" class="control-label">Title</label>
+                                                <input id="scheduleTitle" type="text" placeholder="Title" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="scheduleDescription" class="control-label">Description</label>
+                                                <textarea id="scheduleDescription" type="text" placeholder="Description" class="form-control" />
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal pull-left">Create Schedule</button>
+                                        <button type="button" id="createScheduleBtn" class="btn btn-default" data-dismiss="modal pull-left">Create Schedule</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>
