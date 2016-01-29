@@ -99,6 +99,9 @@ function displaySchedule(id) {
                 scheduleSelectedDiv.removeClass("hidden");
                 scheduleTitleP.html(schedule.get('title'));
                 scheduleDescriptionP.html(schedule.get('description'));
+            },
+            error: function(schedule,error){
+
             }
         }
     );
@@ -171,6 +174,10 @@ createScheduleBtn.click(
         {
             success: function (schedule) {
                 scheduleList.append("<a href='#' id='" + newSchedule.id + "' onclick = 'displaySchedule(`" + newSchedule.id + "`);' class = 'list-group-item'>" + schedule.get('title') + "</a>");
+                noScheduleSelectedDiv.addClass("hidden");
+                scheduleSelectedDiv.removeClass("hidden");
+                scheduleTitleP.html(schedule.get('title'));
+                scheduleDescriptionP.html(schedule.get('description'));
             },
             error: function (schedule, error) {
 
