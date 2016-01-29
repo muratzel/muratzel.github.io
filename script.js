@@ -1,6 +1,5 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
@@ -39,6 +38,7 @@ createBtn.click(
 
         if (password.localeCompare(passwordConfirm)) {
             $('#passwordConfirmDiv').addClass('has-error');
+            $('#passwordConfirm').popover();
             return;
         }
 
