@@ -32,7 +32,7 @@ loginBtn.click(displayPage);
 signupBtn.click(displaySignupForm);
 createBtn.click(
     function () {
-        var username = $("#username").val();
+        var username = $("#username");
         alert(username);
     }
 );
