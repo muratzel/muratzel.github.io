@@ -1,16 +1,6 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
-var Schedule = Parse.Object.extend("Schedule", 
-    {
-        initialize: function (title, username) {
-            this.set('title', title);
-            this.set('username', username);
-        }
-    },
-    {
-
-    }
-);
+var Schedule = Parse.Object.extend("Schedule");
 
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
@@ -141,7 +131,9 @@ continueBtn.click(function () {
 });
 createScheduleBtn.click(
     function () {
-        var newSchedule = new Schedule(Parse.User.current().get("username"), Parse.User.current().get("username"));
+        var newSchedule = new Schedule();
+        newSchedule.set("username", Parse.User.current().get("username"));
+        newSchedule.set("title", Parse.User.current().get("username"));
         newSchedule.save(null,
         {
             success: function (scheduleId) {
