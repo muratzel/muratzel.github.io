@@ -73,7 +73,7 @@ function populateScheduleList() {
         {
             success: function (schedules) {
                 for (var i = 0; i < schedules.length; i++) {
-                    scheduleList.append('<a href="#" class = "group-list-item">' + schedules[i].title + '</a>');
+                    scheduleList.append("<a href='#' class = 'group-list-item'>" + schedules[i].title + "</a>");
                 }
             },
             error: function (schedules, error) {
