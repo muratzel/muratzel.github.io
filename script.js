@@ -5,7 +5,7 @@ var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
 
-var currentUser = new Parse.User.current();
+var currentUser = Parse.User.current();
 
 if (currentUser) {
     loginForm.addClass("hidden")
