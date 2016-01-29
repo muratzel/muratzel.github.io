@@ -152,7 +152,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (schedule) {
-                scheduleList.append("<a href='#' id='schedule"+schedule.get('id')+"' class = 'list-group-item'>" + schedule.get('title') + "</a>");
+                scheduleList.append("<a href='#' id='schedule"+newSchedule.id+"' class = 'list-group-item'>" + schedule.get('title') + "</a>");
             },
             error: function (schedule, error) {
 
