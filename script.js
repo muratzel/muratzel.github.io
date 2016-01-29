@@ -5,17 +5,43 @@ var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
 
-var currentUser = Parse.User.current();
+var loginBtn = $('#loginBtn');
+var signupBtn = $('#signupBtn');
+var createBtn = $('#createBtn');
+var backBtn = $('#backBtn');
 
-if (currentUser) {
+function displayPage() {
     loginForm.addClass("hidden")
     signupForm.addClass("hidden");
     mainDiv.removeClass("hidden");
 }
-else {
+
+function displayLoginForm() {
     loginForm.removeClass("hidden");
     signupForm.addClass("hidden");
     mainDiv.addClass("hidden");
 }
+
+function displaySignupForm() {
+    loginForm.addClass("hidden")
+    signupForm.removeClass("hidden");
+    mainDiv.addClass("hidden");
+}
+
+loginBtn.click(displayPage);
+signupBtn.click(displaySignupForm );
+createBtn.click(displayPage);
+backBtn.click(displayLoginForm);
+
+var currentUser = Parse.User.current();
+
+if (currentUser) {
+    displayPage();
+}
+else {
+    displayLoginForm();
+}
+
+
 
 
