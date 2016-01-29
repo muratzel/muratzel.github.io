@@ -6,6 +6,9 @@ var Schedule = Parse.Object.extend("Schedule",
             this.title = title
             this.username = username
         }
+    },
+    {
+
     }
 );
 
@@ -120,7 +123,7 @@ continueBtn.click(function () {
 });
 createScheduleBtn.click(
     function () {
-        var newSchedule = new Schedule("title", Parse.User.current().username);
+        var newSchedule = new Schedule("title", "vlad");
         newSchedule.save(null,
         {
             success: function (scheduleId) {
