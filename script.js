@@ -85,8 +85,12 @@ createBtn.click(
 
     }
 );
-backBtn.click(location.reload);
-continueBtn.click(location.reload);
+backBtn.click(function () {
+    location.reload();
+});
+continueBtn.click(function () {
+    location.reload();
+});
 logoutBtn.click(
     function () {
         Parse.User.logOut();
