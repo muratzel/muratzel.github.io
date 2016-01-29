@@ -98,7 +98,7 @@ function displaySchedule(id) {
                 noScheduleSelectedDiv.addClass("hidden");
                 scheduleSelectedDiv.removeClass("hidden");
                 scheduleTitleP.html(schedule.get('title'));
-                scheduleDescriptionP.html(schedule.get('desciption'));
+                scheduleDescriptionP.html(schedule.get('description'));
             }
         }
     );
