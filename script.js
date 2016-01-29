@@ -137,7 +137,7 @@ createScheduleBtn.click(
         newSchedule.save(null,
         {
             success: function (scheduleId) {
-                scheduleList.append("<a href='#' class = 'list-group-item'>" + newSchedule.username + "</a>");
+                scheduleList.append("<a href='#' class = 'list-group-item'>" + Parse.User.current().get("username") + "</a>");
             },
             error: function (scheduleId, error) {
 
