@@ -76,7 +76,7 @@ function populateScheduleList() {
         {
             success: function (schedules) {
                 for (var i = 0; i < schedules.length; i++) {
-                    scheduleList.append("<a href='#' id='schedule" + schedules[i].get('id') + "' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
+                    scheduleList.append("<a href='#' id='schedule" + schedules[i].id + "' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
                 }
             },
             error: function (schedules, error) {
