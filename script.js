@@ -3,8 +3,8 @@ Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdic
 var Schedule = Parse.Object.extend("Schedule", 
     {
         initialize: function (title, username) {
-            this.title = title
-            this.username = username
+            this.set('title', title);
+            this.set('username', username);
         }
     },
     {
