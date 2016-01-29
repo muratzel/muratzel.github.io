@@ -134,11 +134,12 @@ createScheduleBtn.click(
     function () {
         var newSchedule = new Schedule();
         newSchedule.set("username", Parse.User.current().get("username"));
-        newSchedule.set("title", Parse.User.current().get("username"));
+        newSchedule.set("title",$("scheduleTitle").val());
+        newSchedule.set("description", $("scheduleDescription").val());
         newSchedule.save(null,
         {
             success: function (scheduleId) {
-                scheduleList.append("<a href='#' class = 'list-group-item'>" + Parse.User.current().get("username") + "</a>");
+                scheduleList.append("<a href='#' class = 'list-group-item'>" + $("scheduleTitle").val() + "</a>");
             },
             error: function (scheduleId, error) {
 
