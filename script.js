@@ -58,19 +58,12 @@ function displaySuccessfulSignin() {
 
 function populateScheduleList() {
     var query = new Parse.Query(Schedule);
+    query.equalTo("username", Parse.User.current().get("username"));
     query.find(
         {
             success: function (schedules) {
                 for (var i = 0; i < schedules.length; i++) {
-                    schedules[i].destroy({
-                        success: function (myObject) {
-                            // The object was deleted from the Parse Cloud.
-                        },
-                        error: function (myObject, error) {
-                            // The delete failed.
-                            // error is a Parse.Error with an error code and message.
-                        }
-                    });
+                    scheduleList.append("<a href='#' class = 'list-group-item'>" + schedules[i].get('title') + "</a>");
                 }
             },
             error: function (schedules, error) {
