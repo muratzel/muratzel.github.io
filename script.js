@@ -6,6 +6,7 @@ var mainDiv = $("#mainDiv");
 var passwordsDontMatchDiv = $('#passwordsDontMatchDiv');
 var successfulSigninDiv = $('#successfulSigninDiv');
 var usernameExistsDiv = $('#usernameExistsDiv');
+var wrongCredentialsDiv = $('#wrongCredentialsDiv');
 
 var loginBtn = $('#loginBtn');
 var signupBtn = $('#signupBtn');
@@ -50,7 +51,23 @@ function displaySuccessfulSignin() {
     successfulSigninDiv.removeClass("hidden");
 }
 
-loginBtn.click(displayPage);
+loginBtn.click(
+    function () {
+        var username = $("#usernameLogin").val();
+        var password = $('#passwordLogin').val();
+
+        Parse.User.logIn(username, password, {
+            success: function (user) {
+                location.reload();
+            },
+            error: function(user,error) {
+                $('#usernameLogin').addClass('has-error');
+                $('#passwordLogin').addClass('has-error');
+                wrongCredentialsDiv.removeClass('hidden');
+            }
+        });
+    }
+);
 signupBtn.click(displaySignupForm);
 createBtn.click(
     function () {
