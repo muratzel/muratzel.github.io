@@ -3,28 +3,45 @@ Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdic
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
 var mainDiv = $("#mainDiv");
+var passwordsDontMatchDiv = $('#passwordsDontMatchDiv');
+var successfulSigninDiv = $('#successfulSignInDiv');
 
 var loginBtn = $('#loginBtn');
 var signupBtn = $('#signupBtn');
 var createBtn = $('#createBtn');
 var backBtn = $('#backBtn');
+var continueBtn = $('#continueBtn');
 
 function displayPage() {
     loginForm.addClass("hidden")
     signupForm.addClass("hidden");
     mainDiv.removeClass("hidden");
+    passwordsDontMatchDiv.addClass("hidden");
+    successfulSigninDiv.addClass("hidden");
 }
 
 function displayLoginForm() {
     loginForm.removeClass("hidden");
     signupForm.addClass("hidden");
     mainDiv.addClass("hidden");
+    passwordsDontMatchDiv.addClass("hidden");
+    successfulSigninDiv.addClass("hidden");
 }
 
 function displaySignupForm() {
     loginForm.addClass("hidden")
     signupForm.removeClass("hidden");
     mainDiv.addClass("hidden");
+    passwordsDontMatchDiv.addClass("hidden");
+    successfulSigninDiv.addClass("hidden");
+}
+
+function displaySuccessfulSignin() {
+    loginForm.addClass("hidden")
+    signupForm.addClass("hidden");
+    mainDiv.addClass("hidden");
+    passwordsDontMatchDiv.addClass("hidden");
+    successfulSigninDiv.removeClass("hidden");
 }
 
 loginBtn.click(displayPage);
@@ -38,13 +55,22 @@ createBtn.click(
 
         if (password.localeCompare(passwordConfirm)) {
             $('#passwordConfirmDiv').addClass('has-error');
-            $('#passwordsDontMatchDiv').removeClass('hidden');
+            passwordsDontMatchDiv.removeClass('hidden');
             return;
+        }
+        else {
+            var newUser = new Parse.User();
+            newUser.set("username", username);
+            newUser.set("password", password);
+            newUser.set("email", email);
+            newUser.save();
+            displaySuccessfulSignin();
         }
 
     }
 );
 backBtn.click(displayLoginForm);
+continueBtn.click(displayPage);
 
 var currentUser = Parse.User.current();
 
