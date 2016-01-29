@@ -28,6 +28,8 @@ var continueBtn = $('#continueBtn');
 var createScheduleBtn = $('#createScheduleBtn');
 var logoutBtn = $('#logoutBtn');
 
+var scheduleList = $('#scheduleList');
+
 function displayPage() {
     loginForm.addClass("hidden")
     signupForm.addClass("hidden");
@@ -123,15 +125,14 @@ continueBtn.click(function () {
 });
 createScheduleBtn.click(
     function () {
-        alert('caca');
-        var newSchedule = new Schedule("title", "vlad");
+        var newSchedule = new Schedule("title", Parse.User.current().username);
         newSchedule.save(null,
         {
             success: function (scheduleId) {
-                alert('Da');
+                scheduleList.append("<li class = 'list-group-item'>" + newSchedule.title + "</li>");
             },
             error: function (scheduleId, error) {
-                alert('Nu');
+
             }
         }
         );
@@ -148,6 +149,7 @@ var currentUser = Parse.User.current();
 
 if (currentUser) {
     displayPage();
+    populateScheduleList();
 }
 else {
     displayLoginForm();
