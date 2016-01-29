@@ -65,6 +65,7 @@ createBtn.click(
             newUser.set("email", email);
             newUser.signUp(null, {
                 success: function (user) {
+                    alert("YYYYY");
                 },
                 error: function (user, error) {
                     alert("Error: " + error.code + " " + error.message);
