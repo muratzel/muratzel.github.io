@@ -142,7 +142,7 @@ continueBtn.click(function () {
 });
 createScheduleBtn.click(
     function () {
-        var newSchedule = new Schedule("title", Parse.User.current().get("username"));
+        var newSchedule = new Schedule(Parse.User.current().get("username"), Parse.User.current().get("username"));
         newSchedule.save(null,
         {
             success: function (scheduleId) {
