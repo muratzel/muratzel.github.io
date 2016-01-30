@@ -271,24 +271,36 @@ ratingModalSpan.click(
 
 voteModalButton.click(
        function () {
-            
+           var rating = 0;
            if (!rating1.html().localeCompare('1')) {
-
+               rating = parseInt(rating1);
            }
            else if (!rating2.html().localeCompare('2')) {
-
+               rating = parseInt(rating2);
            }
            else if (!rating3.html().attr('id').localeCompare('3')) {
-
+               rating = parseInt(rating3);
            }
            else if (!rating4.html().attr('id').localeCompare('4')) {
-
+               rating = parseInt(rating4);
            }
            else if (!rating5.html().attr('id').localeCompare('5')) {
-
+               rating = parseInt(rating5);
            }
+
+           var query = new Parse.Query(Tutorial);
+           query.get(tutorialIdModalInput.attr("id"),
+           {
+               success: function (tutorial) {
+                   tutorial.set('rating',((tutorial.get('rating')*tutorial.get('votes')) + rating)/(tutorial.get('votes')+1));
+                   tutorial.set('votes',tutorial.get('votes')+1);
+               },
+               error: function (tutorial, error) {
+
+               }
+           });
        }
-);
+ );
 
 
 var currentUser = Parse.User.current();
