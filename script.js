@@ -59,7 +59,7 @@ function populateWithTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayUl.append("<li class='list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-xs-offset'>" + tutorials[i].get('rating') + "(" + tutorials[i].get('voters') + " voters)</small></h3></li>");
+                    mainPageTutorialsDisplayUl.append("<li class='list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-xs-offset'>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></li>");
                 }
             },
             error: function (schedules, error) {
