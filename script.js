@@ -288,7 +288,12 @@ voteModalButton.click(
                rating = parseInt(rating5);
            }
 
-           alert(rating);
+           alert(rating1.html());
+           alert(rating2.html());
+           alert(rating3.html());
+           alert(rating4.html());
+           alert(rating5.html());
+
            var query = new Parse.Query(Tutorial);
            query.get(tutorialIdModalInput.attr("id"),
            {
