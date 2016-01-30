@@ -88,7 +88,6 @@ function populateModal(tutorial) {
         return;
     }
 
-    currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
     var tutorials_viewed = currentUser.get('tutorials_viewed');
     if ($.inArray($(tutorial).attr("id"), tutorials_viewed) < 0) {
         currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
