@@ -28,7 +28,7 @@ var backButton = $('#backButton');
 
 var addTagButton = $('#addTagButton');
 var addTutorialButton = $('#addTutorialButton');
-var closeAddTutorialModal = $('#closeAddTutorialModal');
+var closeAddTutorialModalButton = $('#closeAddTutorialModalButton');
 var logoutButton = $('#logoutButton');
 
 
@@ -168,7 +168,7 @@ addTutorialButton.click(function () {
         }
     );
 });
-closeAddTutorialModal.click(
+closeAddTutorialModalButton.click(
     function () {
         $('#tutorialTypeSelect').val('');
         $('#tutorialTitleInput').val('');
