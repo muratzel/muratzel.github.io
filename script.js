@@ -91,7 +91,7 @@ function populateWithViewedTutorials() {
     alert(tutorials_viewed);
 
     query.descending("createdAt");
-    query.containedIn("id", tutorials_viewed);
+    query.containedIn("objectId", tutorials_viewed);
     query.find(
         {
             success: function (tutorials) {
