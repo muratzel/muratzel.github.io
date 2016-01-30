@@ -24,6 +24,7 @@ var tutorialRatingModalP = $('#tutorialRatingModalP');
 var tutorialVotesModalP = $('#tutorialVotesModalP');
 var ratingModalSpan = $('#ratingModalSpan');
 var voteModalButton = $('#voteModalButton');
+var tutorialIdModalInput = $('#tutorialIdModalInput');
 var rating1 = $('#rating1');
 var rating2 = $('#rating2');
 var rating3 = $('#rating3');
@@ -109,6 +110,7 @@ function populateModal(tutorial) {
                 }
                 tutorialRatingModalP.html(tutorial.get('rating'));
                 tutorialVotesModalP.html(tutorial.get('votes'));
+                tutorialIdModalInput.val(tutorial.id);
                 voteModalButton.addClass("hidden");
                 $('#showTutorialModal').modal('toggle');
                 $('#showTutorialModal').modal('show');
@@ -269,11 +271,22 @@ ratingModalSpan.click(
 
 voteModalButton.click(
        function () {
-           alert(rating1.html());
-           alert(rating2.html());
-           alert(rating3.html());
-           alert(rating4.html());
-           alert(rating5.html());
+            
+           if (!rating1.html().localeCompare('1')) {
+
+           }
+           else if (!rating2.html().localeCompare('2')) {
+
+           }
+           else if (!rating3.html().attr('id').localeCompare('3')) {
+
+           }
+           else if (!rating4.html().attr('id').localeCompare('4')) {
+
+           }
+           else if (!rating5.html().attr('id').localeCompare('5')) {
+
+           }
        }
 );
 
