@@ -67,7 +67,7 @@ function populateWithTutorials() {
 }
 function populateModal(tutorial) {
     var query = new Parse.Query(Tutorial);
-    query.get(tutorial.attr("id"),
+    query.get($(tutorial).attr("id"),
         {
             success: function (tutorial) {
                 tutorialTitleModalP.html(tutorial.get('title'));
@@ -87,7 +87,7 @@ function populateModal(tutorial) {
 }
 function removeTag(tag) {
     alert($(tag).parent());
-    tag.parent().remove();
+    $(tag).parent().remove();
 }
 
 //button functions
