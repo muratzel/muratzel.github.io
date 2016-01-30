@@ -372,15 +372,13 @@ function deleteTutorials(){
         }
     );
 }
-function restartUsers() {
+function deleteUsers() {
     var query = new Parse.Query(Parse.User);
     query.find(
         {
             success: function (users) {
                 for (var i = 0; i < users.length; i++) {
-                    users[i].set("tutorials_voted", []);
-                    users[i].set("tutorials_viewed", []);
-                    users[i].set("clicks_left", 15);
+                    users[i].destroy();
                     users[i].save();
                 }
             },
@@ -391,8 +389,6 @@ function restartUsers() {
     );
 }
 
-restartUsers();
-deleteTutorials();
 var currentUser = Parse.User.current();
 
 if (currentUser) {
