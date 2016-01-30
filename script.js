@@ -86,7 +86,7 @@ function populateModal(tutorial) {
     );
 }
 function removeTag(tag) {
-    alert(tag);
+    alert(tag[0]);
     tag.parent().remove();
 }
 
