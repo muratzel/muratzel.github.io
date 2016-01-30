@@ -68,7 +68,7 @@ function displaySignupForm() {
 //populate/depopulate stuff
 function populateWithTutorials() {
     var query = new Parse.Query(Tutorial);
-    query.ascending("createdAt");
+    query.descending("createdAt");
     query.find(
         {
             success: function (tutorials) {
@@ -88,7 +88,9 @@ function populateWithViewedTutorials() {
     var currentUser = Parse.User.current();
     var tutorials_viewed = currentUser.get('tutorials_viewed');
 
-    query.ascending("createdAt");
+    alert(tutorials_viewed);
+
+    query.descending("createdAt");
     query.containedIn("id", tutorials_viewed);
     query.find(
         {
