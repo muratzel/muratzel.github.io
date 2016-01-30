@@ -90,8 +90,8 @@ backButton.click(function () {
     location.reload();
 });
 addTagButton.click(function () {
-    tagListDiv.append("<a href='#' class = 'list-group-item'>" + $('addTagInput').val() + "</a>");
-    $('addTagInput').val = '';
+    tagListDiv.append("<a href='#' class = 'list-group-item'>" + $('#addTagInput').val() + "</a>");
+    $('#addTagInput').val = '';
 })
 addTutorialButton.click(function () {
 
