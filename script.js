@@ -136,7 +136,7 @@ backButton.click(function () {
     location.reload();
 });
 addTagButton.click(function () {
-    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val().slice(0,-1) + "<button type='button' class='close sm'>&times;</button></span>");
+    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val() + "<button type='button' class='close sm'>&times;</button></span>");
     $('#addTagInput').val('');
 })
 addTutorialButton.click(function () {
@@ -150,8 +150,7 @@ addTutorialButton.click(function () {
 
     var tags = [];
     $('#tagListDiv').children().each(function () {
-        alert($(this).text());
-        tags.push($(this).text());
+        tags.push($(this).text().slice(0, -1));
     });
     newTutorial.set("tags", tags);
 
