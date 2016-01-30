@@ -235,6 +235,7 @@ ratingModalSpan.click(
             $('#rating3').attr('checked', false);
             $('#rating4').attr('checked', false);
             $('#rating5').attr('checked', false);
+            alert(1);
         }
         else if (!$(event.target).attr('id').localeCompare('rating2')){
             $('#rating1').attr('checked', false);
@@ -242,6 +243,7 @@ ratingModalSpan.click(
             $('#rating3').attr('checked', false);
             $('#rating4').attr('checked', false);
             $('#rating5').attr('checked', false);
+            alert(2);
         }
         else if (!$(event.target).attr('id').localeCompare('rating3')){
             $('#rating1').attr('checked', false);
@@ -249,6 +251,7 @@ ratingModalSpan.click(
             $('#rating3').attr('checked', true);
             $('#rating4').attr('checked', false);
             $('#rating5').attr('checked', false);
+            alert(3);
         }
         else if (!$(event.target).attr('id').localeCompare('rating4')){
             $('#rating1').attr('checked', false);
@@ -256,6 +259,7 @@ ratingModalSpan.click(
             $('#rating3').attr('checked', false);
             $('#rating4').attr('checked', true);
             $('#rating5').attr('checked', false);
+            alert(4);
         }
         else if (!$(event.target).attr('id').localeCompare('rating5')) {
             $('#rating1').attr('checked', false);
@@ -263,6 +267,7 @@ ratingModalSpan.click(
             $('#rating3').attr('checked', false);
             $('#rating4').attr('checked', false);
             $('#rating5').attr('checked', true);
+            alert(5);
         }
     }
 );
