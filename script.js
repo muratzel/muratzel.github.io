@@ -120,6 +120,7 @@ addTutorialButton.click(function () {
 
     var tags = [];
     $('#tagListDiv').children().each(function () {
+        alert(this);
         tags.push(this.html());
     });
     newTutorial.set("tags", tags);
