@@ -91,7 +91,7 @@ backButton.click(function () {
 });
 addTagButton.click(function () {
     tagListDiv.append("<a href='#' class = 'list-group-item'>" + $('#addTagInput').val() + "</a>");
-    $('#addTagInput').innerHTML('');
+    $('#addTagInput').val('');
 })
 addTutorialButton.click(function () {
 
