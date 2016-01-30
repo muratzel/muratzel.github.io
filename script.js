@@ -229,7 +229,7 @@ logoutButton.click(
 ratingModalSpan.click(
     function (event) {
         voteModalButton.removeClass("hidden");
-        alert(event.target.attr('id'));
+        alert($(event.target).attr('id'));
     }
 );
 voteModalButton.click(
