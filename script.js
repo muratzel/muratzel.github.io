@@ -249,7 +249,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                mainPageTutorialsDisplayUl.append('<div class="row list-group-item" onclick = "populateModal(this);" id="' + tutorial.id + '"><h3 class="col-md-12">' + tutorial.get('title') + '</h3><h3 class="col-md-12"><small>' + tutorial.get('rating') + '(' + tutorial.get('votes') + ' voters)</small></h3></div>');
+                populateWithTutorials();
             },
             error: function (tutorial, error) {
             }
