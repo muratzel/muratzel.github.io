@@ -88,7 +88,11 @@ backButton.click(function () {
     location.reload();
 });
 addTutorialButton.click(function () {
+
     var newTutorial = new Tutorial();
+    newTutorial.set("title", $('#tutorialTitleInput').val());
+    newTutorial.set("description", $('#tutorialDescriptionTextarea').val());
+    newTutorial.set("link", $('#tutorialLinkInput')
 
 });
 logoutButton.click(
