@@ -31,6 +31,22 @@ function displaySignupForm() {
 }
 
 //button functions
+loginBtn.click(
+    function () {
+        var username = $("#usernameLogin").val();
+        var password = $('#passwordLogin').val();
+
+        Parse.User.logIn(username, password, {
+            success: function (user) {
+                location.reload();
+            },
+            error: function (user, error) {
+                $('#usernameLogin').addClass('has-error');
+                $('#passwordLogin').addClass('has-error');
+            }
+        });
+    }
+);
 newAccountButton.click(displaySignupForm);
 backButton.click(function () {
     location.reload();
