@@ -23,7 +23,7 @@ function displaySignupForm() {
 var currentUser = Parse.User.current();
 
 if (currentUser) {
-    displayPage();
+    displayMainPage();
 }
 else {
     displayLoginForm();
