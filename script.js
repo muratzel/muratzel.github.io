@@ -31,7 +31,7 @@ function displaySignupForm() {
 }
 
 //button functions
-loginBtn.click(
+loginButton.click(
     function () {
         var username = $("#usernameLogin").val();
         var password = $('#passwordLogin').val();
