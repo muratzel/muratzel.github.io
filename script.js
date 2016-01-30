@@ -51,6 +51,34 @@ loginButton.click(
     }
 );
 newAccountButton.click(displaySignupForm);
+signupButton.click(
+    function () {
+        var username = $("#usernameSignupInput").val();
+        var password = $("#passwordSignupInput").val();
+        var passwordConfirm = $('#passwordConfirmInput').val();
+        var email = $('#emailInput').val();
+
+        if (password.localeCompare(passwordConfirm)) {
+            $('#passwordConfirmDiv').addClass('has-error');
+        }
+        else {
+            var newUser = new Parse.User();
+
+            newUser.set("username", username);
+            newUser.set("password", password);
+            newUser.set("email", email);
+
+            newUser.signUp(null, {
+                success: function (user) {
+                    location.reload()
+                },
+                error: function (user, error) {
+                }
+            });
+        }
+
+    }
+);
 backButton.click(function () {
     location.reload();
 });
