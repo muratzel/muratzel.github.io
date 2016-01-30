@@ -111,6 +111,7 @@ function populateModal(tutorial) {
                 tutorialTypeModalP.html(tutorial.get('type'));
                 tutorialDescriptionModalP.html(tutorial.get('description'));
                 tutorialLinkModalP.html(tutorial.get('link'));
+                tutorialLinkModalP.attr("href",tutorial.get('link'));
                 var tags = tutorial.get('tags');
                 for (var i = 0; i < tags.length ; i++) {
                     tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "</span>");
@@ -234,6 +235,7 @@ closeAddTutorialModalButton.click(
         tutorialTitleInput.val('');
         tutorialDescriptionTextarea.val('');
         tutorialLinkInput.val('');
+        tutorialLinkInput.attr("href", "");
         addTagInput.val('');
         tutorialRatingModalP.val('');
         tutorialVotesModalP.val('');
