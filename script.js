@@ -12,6 +12,7 @@ var loginButton = $('#loginButton');
 var newAccountButton = $('#newAccountButton');
 var signupButton = $('#signupButton');
 var backButton = $('#backButton');
+var logoutButton = $('#logoutButton');
 
 //display functions
 function displayMainPage() {
@@ -79,6 +80,12 @@ signupButton.click(
 backButton.click(function () {
     location.reload();
 });
+logoutBtn.click(
+    function () {
+        Parse.User.logOut();
+        location.reload();
+    }
+);
 
 var currentUser = Parse.User.current();
 
