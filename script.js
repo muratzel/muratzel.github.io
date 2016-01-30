@@ -229,5 +229,3 @@ else {
 }
 
 
-<small class = 'pull-right'><span><input type='radio' name='rating' value='1'><label>1</label><input type='radio' name='rating' value='2'><label>2</label><input type='radio' name='rating' value='3' checked><label>3</label><input type='radio' name='rating' value='4'><label>4</label><input type='radio' name='rating' value='5'><label>5</label></span></small>
-
