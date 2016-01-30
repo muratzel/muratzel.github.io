@@ -10,7 +10,14 @@ var signupForm = $("#signupForm");
 //divs handles
 var mainPageDiv = $("#mainPageDiv");
 var tagListDiv = $('#tagListDiv');
-var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv ');
+var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv');
+
+//modal handles
+var tutorialTitleModalP = $('#tutorialTitleModalP');
+var tutorialTypeModalP = $('#tutorialTypeModalP');
+var tutorialDescriptionModalP = $('#tutorialDescriptionModalP');
+var tutorialLinkModalP = $('#tutorialLinkModalP');
+var tutorialTagsModalDiv = $('#tutorialTagsModalDiv');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -41,16 +48,38 @@ function displaySignupForm() {
     signupForm.removeClass("hidden");
     mainPageDiv.addClass("hidden");
 }
+
+//populate stuff
 function populateWithTutorials() {
     var query = new Parse.Query(Tutorial);
     query.find(
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayDiv.append("<div class='tutorialDiv col-md-12' id='" + tutorials[i].id + "'><h3>"+tutorials[i].get('title')+"</h3></div>");
+                    mainPageTutorialsDisplayDiv.append("<a class='tutorialA list-group-item' onclick = 'populateModal(`"+tutorials[i].id+"`);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-md-offset-1'>" + tutorials[i].get('type') + "</small></h3></a>");
                 }
             },
             error: function (schedules, error) {
+
+            }
+        }
+    );
+}
+function populateModal(id) {
+    var query = new Parse.Query(Tutorial);
+    query.get(id,
+        {
+            success: function (tutorial) {
+                tutorialTitleModalP.html(tutorial.get('title'));
+                tutorialTypeModalP.html(tutorial.get('type'));
+                tutorialDescriptionModalP.html(tutorial.get('description'));
+                tutorialLinkModalP.html(tutorial.get('link'));
+                var tags = tutorial.get('tags');
+                for (var i = 0; i < tags.length ; i++) {
+                    tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "</span>");
+                }
+            },
+            error: function (tutorial, error) {
 
             }
         }
@@ -121,14 +150,14 @@ addTutorialButton.click(function () {
 
     var tags = [];
     $('#tagListDiv').children().each(function () {
-        alert(this.text());
-        tags.push(this.text());
+        tags.push($(this).text().slice(0, -1));
     });
     newTutorial.set("tags", tags);
 
     newTutorial.save(null,
         {
             success: function (tutorial) {
+                mainPageTutorialsDisplayDiv.append("<a href ='#' class='tutorialA list-group-item' onclick = 'populateModal(`" + tutorial.id + "`);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorial.id + "'><h3>" + tutorial.get('title') + "<small class='col-md-offset-1'>" + tutorial.get('type') + "</small></h3></a>");
             },
             error: function (tutorial, error) {
             }
