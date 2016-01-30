@@ -69,6 +69,18 @@ function populateWithTutorials() {
     );
 }
 function populateModal(tutorial) {
+
+    var currentUser = Parse.User().current();
+
+    currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
+    currentUser.save(null, {
+        success: function (user) {
+            updateClicksLeft();
+        },
+        error: function (user, error) {
+        }
+    });
+
     var query = new Parse.Query(Tutorial);
     query.get($(tutorial).attr("id"),
         {
