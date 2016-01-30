@@ -13,10 +13,11 @@ var tagListDiv = $('#tagListDiv');
 var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv');
 
 //modal handles
-var tutorialTitleModal = $('#tutorialTitleModal');
-var tutorialTypeModal = $('#tutorialTypeModal');
-var tutorialDescriptionModal = $('#tutorialDescriptionModal');
-var tutorialLinkModal = $('#tutorialLinkModal');
+var tutorialTitleModalP = $('#tutorialTitleModalP');
+var tutorialTypeModalP = $('#tutorialTypeModalP');
+var tutorialDescriptionModalP = $('#tutorialDescriptionModalP');
+var tutorialLinkModalP = $('#tutorialLinkModalP');
+var tutorialTagsModalDiv = $('#tutorialTagsModalDiv');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -69,10 +70,14 @@ function populateModal(id) {
     query.get(id,
         {
             success: function (tutorial) {
-                tutorialTitleModal.html(tutorial.get('title'));
-                tutorialTypeModal.html(tutorial.get('type'));
-                tutorialDescriptionModal.html(tutorial.get('description'));
-                tutorialLinkModal.html(tutorial.get('link'));
+                tutorialTitleModalP.html(tutorial.get('title'));
+                tutorialTypeModalP.html(tutorial.get('type'));
+                tutorialDescriptionModalP.html(tutorial.get('description'));
+                tutorialLinkModalDiv.html(tutorial.get('link'));
+                var tags = tutorial.get('tags');
+                for (var i = 0; i < tags.length ; i++) {
+                    tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "<button type='button' class='close sm'>&times;</button></span>");
+                }
             },
             error: function (tutorial, error) {
 
