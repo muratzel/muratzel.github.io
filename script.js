@@ -36,9 +36,6 @@ loginButton.click(
         var username = $("#usernameLoginInput").val();
         var password = $("#passwordLoginInput").val();
 
-        alert(username);
-        alert(password);
-
         Parse.User.logIn(username, password, {
             success: function (user) {
                 location.reload();
