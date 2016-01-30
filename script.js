@@ -85,6 +85,9 @@ function populateModal(id) {
         }
     );
 }
+function removeTag(tag) {
+    tag.parent.remove();
+}
 
 //button functions
 loginButton.click(
