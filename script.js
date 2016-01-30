@@ -10,7 +10,7 @@ var signupForm = $("#signupForm");
 //divs handles
 var mainPageDiv = $("#mainPageDiv");
 var tagListDiv = $('#tagListDiv');
-var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv ');
+var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -121,7 +121,7 @@ addTutorialButton.click(function () {
 
     var tags = [];
     $('#tagListDiv').children().each(function () {
-        alert(this.text());
+        alert(this);
         tags.push(this.text());
     });
     newTutorial.set("tags", tags);
