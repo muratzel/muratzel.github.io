@@ -76,7 +76,7 @@ function populateModal(id) {
                 tutorialLinkModalDiv.html(tutorial.get('link'));
                 var tags = tutorial.get('tags');
                 for (var i = 0; i < tags.length ; i++) {
-                    tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "<button type='button' class='close sm'>&times;</button></span>");
+                    tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "</span>");
                 }
             },
             error: function (tutorial, error) {
