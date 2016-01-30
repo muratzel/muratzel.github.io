@@ -20,6 +20,7 @@ function displaySignupForm() {
     mainPageDiv.addClass("hidden");
 }
 
+Parse.User.logOut();
 var currentUser = Parse.User.current();
 
 if (currentUser) {
