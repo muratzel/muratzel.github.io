@@ -126,6 +126,7 @@ signupButton.click(
             newUser.set("username", username);
             newUser.set("password", password);
             newUser.set("email", email);
+            newUser.set("views_left", 15);
 
             newUser.signUp(null, {
                 success: function (user) {
