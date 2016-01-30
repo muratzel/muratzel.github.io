@@ -288,10 +288,9 @@ voteModalButton.click(
                rating = 5;
            }
 
-           alert(rating);
-
            var query = new Parse.Query(Tutorial);
-           query.get(tutorialIdModalInput.attr("id"),
+           alert(tutorialIdModalInput.attr("value"));
+           query.get(tutorialIdModalInput.attr("value"),
            {
                success: function (tutorial) {
                    alert(1111);
