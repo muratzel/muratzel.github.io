@@ -70,7 +70,7 @@ function populateWithTutorials() {
 }
 function populateModal(tutorial) {
 
-    var currentUser = Parse.User().current();
+    var currentUser = Parse.User.current();
 
     currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
     currentUser.save(null, {
