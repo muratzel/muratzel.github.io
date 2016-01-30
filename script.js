@@ -88,8 +88,6 @@ function populateWithViewedTutorials() {
     var currentUser = Parse.User.current();
     var tutorials_viewed = currentUser.get('tutorials_viewed');
 
-    alert(tutorials_viewed);
-
     query.descending("createdAt");
     query.containedIn("objectId", tutorials_viewed);
     query.find(
