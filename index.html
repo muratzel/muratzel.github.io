@@ -54,7 +54,7 @@
         </form>
         <div id= "mainPageDiv">
             <div id="mainPageMenuDiv" class="col-md-12 well">
-                <button type="button" id="addTutorialButton" class="btn btn-primary ">Add Tutorial</button>
+                <button type="button" id="openAddTutorialButton" data-toggle ="modal" data-target="#addTutorialModal" class="btn btn-primary ">Add Tutorial</button>
                 <button type="button" id="logoutButton" class="btn btn-primary pull-right">Logout</button>
             </div>
             <div id="mainPageSearchDiv" class="col-md-offset-2 col-md-8 well">
@@ -62,6 +62,40 @@
             <div id="mainPageContentDiv" class="col-md-offset-2 col-md-8 well">
             </div>
         </div>
+
+        <!--Modals-->
+        <div class="modal fade" id="addTutorialModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Create New Modal</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <input id="tutorialTitleInput" type="text" placeholder="Title" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <textarea id="tutorialDescriptionTextarea" placeholder="Description" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <ul id="tagList" class="list-inline list-group col-md-12">
+                                </ul>
+                                <input id="addTagInput" placeholder="Tag" class="form-control col-md-8"/>
+                                <button id="addTagButton" class="btn btn-primary col-md-4">Add Tag</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="addTutorialButton" class="btn btn-default" data-dismiss="modal">Add Tutorial</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <script src="script.js"></script>
     </body>
 </html>
