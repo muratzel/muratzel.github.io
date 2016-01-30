@@ -170,10 +170,10 @@ addTutorialButton.click(function () {
 });
 closeAddTutorialModalButton.click(
     function () {
-        $('#tutorialTypeSelect').val('');
         $('#tutorialTitleInput').val('');
         $('#tutorialDescriptionTextarea').val('');
         $('#tutorialLinkInput').val('');
+        $('#addTagInput').val('');
         $('#tagListDiv').empty();
     }
 );
