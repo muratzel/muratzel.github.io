@@ -90,7 +90,7 @@ backButton.click(function () {
     location.reload();
 });
 addTagButton.click(function () {
-    tagListDiv.append("<span class='label label-primary col-md-1'>" + $('#addTagInput').val() + "</span>");
+    tagListDiv.append("<span class='label label-primary'>" + $('#addTagInput').val() + "</span>");
     $('#addTagInput').val('');
 })
 addTutorialButton.click(function () {
