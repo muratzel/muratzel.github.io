@@ -4,8 +4,8 @@ Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdic
 var Tutorial = Parse.Object.extend("Tutorial");
 
 //form handles
-var loginForm = $("#loginForm");
-var signupForm = $("#signupForm");
+var loginForm = $(".login");
+var signupForm = $(".signup");
 
 //divs handles
 var mainPageDiv = $("#mainPageDiv");

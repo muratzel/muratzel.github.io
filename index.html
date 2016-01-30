@@ -1,6 +1,33 @@
-﻿<!DOCTYPE html >
+<!DOCTYPE html >
 <html>
+    
+    
     <head>
+        <style>
+            .login {
+                height: 200px;
+                background: red; /* For browsers that do not support gradients */    
+                background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */
+    			margin: 50px 10% 50px 10%;
+    			padding: 20px 15px 0px 0px;
+    			border-radius: 25px;
+    		}
+            
+            .signup {
+                height: 300px;
+                background: red; /* For browsers that do not support gradients */    
+                background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */
+    			margin: 50px 10% 50px 10%;
+    			padding: 20px 15px 0px 0px;
+    			border-radius: 25px;
+    		}
+        </style>
         <meta charset="utf-8"/>
         <meta name = "viewport" content= "width = device-initial-width, initial-scale = 1"/>
         <link rel = "stylesheet" href = "style.css"/>
@@ -18,8 +45,8 @@
                 <h1>Title</h1>
             </div>
         </div> 
-        <form id="loginForm" class="form-horizontal">
-            <div id="loginDiv" class="col-md-6 col-md-offset-3 well">
+        <form id="loginForm" class="form-horizontal login">
+            <div id="loginDiv" class="col-md-6 col-md-offset-3">
                 <div class="form-group" id="usernameLoginInputDiv">
                     <input id="usernameLoginInput" type="text" placeholder="Username" class="form-control" />
                 </div>
@@ -32,8 +59,8 @@
                 </div>
             </div>
         </form>
-        <form id="signupForm" class="form-horizontal">
-            <div id="signupDiv" class="col-md-6 col-md-offset-3 well">
+        <form id="signupForm" class="form-horizontal signup">
+            <div id="signupDiv" class="col-md-6 col-md-offset-3">
                 <div class="form-group" id="usernameSignupInputDiv">
                     <input id="usernameSignupInput" type="text" placeholder="Username" class="form-control" />
                 </div>
