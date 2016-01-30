@@ -1,6 +1,21 @@
 ﻿<!DOCTYPE html >
 <html>
     <head>
+    	<style>
+    		#pageBox {
+    			background-color: bisque;
+    			margin: 50px 10% 50px 10%;
+    			padding: 20px 20px 0px 0px;
+    			border-radius: 25px;
+    		}
+    		
+    		img {
+    			width: 100%;
+    			height: 100px;
+    			object-fit: contain;
+    		}
+    		
+    	</style>
         <meta charset="utf-8"/>
         <meta name = "viewport" content= "width = device-initial-width, initial-scale = 1"/>
         <link rel = "stylesheet" href = "style.css"/>
@@ -18,40 +33,49 @@
                 <h1>Title</h1>
             </div>
         </div> 
-        <form id="loginForm" class="form-horizontal">
-            <div id="loginDiv" class="col-md-6 col-md-offset-3 well">
-                <div class="form-group" id="usernameLoginInputDiv">
-                    <input id="usernameLoginInput" type="text" placeholder="Username" class="form-control" />
-                </div>
-                <div class="form-group" id="passwordLoginInputDiv">
-                    <input id="passwordLoginInput" type="password" placeholder="Password" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <button type="button" id="loginButton" class="btn btn-primary">Login</button>
-                    <button type="button" id="newAccountButton" class="btn btn-primary pull-right">New Account</button>
-                </div>
-            </div>
-        </form>
-        <form id="signupForm" class="form-horizontal">
-            <div id="signupDiv" class="col-md-6 col-md-offset-3 well">
-                <div class="form-group" id="usernameSignupInputDiv">
-                    <input id="usernameSignupInput" type="text" placeholder="Username" class="form-control" />
-                </div>
-                <div class="form-group" id="passwordSignupInputDiv">
-                    <input id="passwordSignupInput" type="password" placeholder="Password" class="form-control" />
-                </div>
-                <div class="form-group" id="passwordConfirmInputDiv">
-                    <input id="passwordConfirmInput" type="password" placeholder="Confirm Password" class="form-control" />
-                </div>
-                <div class="form-group" id="emailInputDiv">
-                    <input id="emailInput" type="email" placeholder="Email" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <button type="button" id="signupButton" class="btn btn-primary">Sign Up</button>
-                    <button type="button" id="backButton" class="btn btn-primary pull-right">Back</button>
-                </div>
-            </div>
-        </form>
+        
+        <div id="pageBox">
+			<form id="loginForm" class="form-horizontal">
+				<div id="loginDiv" class="col-md-6 col-md-offset-3">
+					<div class="form-group" id="usernameLoginInputDiv">
+						<input id="usernameLoginInput" type="text" placeholder="Username" class="form-control" />
+					</div>
+					<div class="form-group" id="passwordLoginInputDiv">
+						<input id="passwordLoginInput" type="password" placeholder="Password" class="form-control" />
+					</div>
+					<div class="form-group">
+						<button type="button" id="loginButton" class="btn btn-primary">Login</button>
+						<button type="button" id="newAccountButton" class="btn btn-primary pull-right">New Account</button>
+					</div>
+				</div>
+			</form>
+			<img src = "gradientBorder.png" />
+        </div>
+        
+        <div id="pageBox">
+			<form id="signupForm" class="form-horizontal">
+				<div id="signupDiv" class="col-md-6 col-md-offset-3">
+					<div class="form-group" id="usernameSignupInputDiv">
+						<input id="usernameSignupInput" type="text" placeholder="Username" class="form-control" />
+					</div>
+					<div class="form-group" id="passwordSignupInputDiv">
+						<input id="passwordSignupInput" type="password" placeholder="Password" class="form-control" />
+					</div>
+					<div class="form-group" id="passwordConfirmInputDiv">
+						<input id="passwordConfirmInput" type="password" placeholder="Confirm Password" class="form-control" />
+					</div>
+					<div class="form-group" id="emailInputDiv">
+						<input id="emailInput" type="email" placeholder="Email" class="form-control" />
+					</div>
+					<div class="form-group">
+						<button type="button" id="signupButton" class="btn btn-primary">Sign Up</button>
+						<button type="button" id="backButton" class="btn btn-primary pull-right">Back</button>
+					</div>
+				</div>
+			</form>
+			<img src = "gradientBorder.png" />
+        </div>
+        
         <div id= "mainPageDiv">
             <div id="mainPageMenuDiv" class="col-md-12 well">
                 <button type="button" id="openAddTutorialButton" data-toggle ="modal" data-target="#addTutorialModal" class="btn btn-primary ">Add Tutorial</button>
