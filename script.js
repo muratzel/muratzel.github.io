@@ -10,6 +10,7 @@ var signupForm = $("#signupForm");
 //divs handles
 var mainPageDiv = $("#mainPageDiv");
 var tagListDiv = $('#tagListDiv');
+var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv ');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -38,6 +39,21 @@ function displaySignupForm() {
     loginForm.addClass("hidden");
     signupForm.removeClass("hidden");
     mainPageDiv.addClass("hidden");
+}
+function populateWithTutorials() {
+    var query = new Parse.Query(Tutorial);
+    query.find(
+        {
+            success: function (tutorials) {
+                for (var i = 0; i < tutorials.length; i++) {
+                    mainPageTutorialsDisplayDiv.append("<div class='tutorialDiv col-md-12' id='" + tutorials[i].id + "'><h3>"+tutorials[i].title+"</h3></div>");
+                }
+            },
+            error: function (schedules, error) {
+
+            }
+        }
+    );
 }
 
 //button functions
