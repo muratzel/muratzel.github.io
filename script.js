@@ -59,7 +59,7 @@ function populateWithTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3><h3 class = 'pull-right'><small><span><input type='radio' name='rating' value='1'><label>1</label><input type='radio' name='rating' value='2'><label>2</label><input type='radio' name='rating' value='3' checked><label>3</label><input type='radio' name='rating' value='4'><label>4</label><input type='radio' name='rating' value='5'><label>5</label></span></small></h3></li>");
+                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small><small class = 'pull-right'><span><input type='radio' name='rating' value='1'><label>1</label><input type='radio' name='rating' value='2'><label>2</label><input type='radio' name='rating' value='3' checked><label>3</label><input type='radio' name='rating' value='4'><label>4</label><input type='radio' name='rating' value='5'><label>5</label></span></small></h3></li>");
                 }
             },
             error: function (schedules, error) {
