@@ -1,5 +1,8 @@
 Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdicpaBGxhVRtcJh2lOpHfH519");
 
+//parse objects
+var Tutorial = Parse.Object.extend("Tutorial");
+
 //form handles
 var loginForm = $("#loginForm");
 var signupForm = $("#signupForm");
@@ -10,9 +13,13 @@ var mainPageDiv = $("#mainPageDiv");
 //button handles
 var loginButton = $('#loginButton');
 var newAccountButton = $('#newAccountButton');
+
 var signupButton = $('#signupButton');
 var backButton = $('#backButton');
+
+var addTutorialButton = $('#addTutorialButton');
 var logoutButton = $('#logoutButton');
+
 
 //display functions
 function displayMainPage() {
@@ -79,6 +86,10 @@ signupButton.click(
 );
 backButton.click(function () {
     location.reload();
+});
+addTutorialButton.click(function () {
+    var newTutorial = new Tutorial();
+
 });
 logoutButton.click(
     function () {
