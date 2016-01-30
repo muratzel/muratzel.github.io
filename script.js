@@ -149,6 +149,7 @@ signupButton.click(
             newUser.set("username", username);
             newUser.set("password", password);
             newUser.set("email", email);
+            newUser.set("tutorials_voted", []);
             newUser.set("clicks_left", 15);
 
             newUser.signUp(null, {
