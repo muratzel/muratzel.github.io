@@ -22,6 +22,8 @@ var tutorialLinkModalP = $('#tutorialLinkModalP');
 var tutorialTagsModalDiv = $('#tutorialTagsModalDiv');
 var tutorialRatingModalP = $('#tutorialRatingModalP');
 var tutorialVotesModalP = $('#tutorialVotesModalP');
+var ratingModalSpan = $('#ratingModalSpan');
+var voteModalButton = $('#voteModalButton');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -102,6 +104,7 @@ function populateModal(tutorial) {
                 }
                 tutorialRatingModalP.html(tutorial.get('rating'));
                 tutorialVotesModalP.html(tutorial.get('votes'));
+                voteModalButton.addClass("hidden");
                 $('#showTutorialModal').modal('toggle');
                 $('#showTutorialModal').modal('show');
             },
@@ -111,6 +114,10 @@ function populateModal(tutorial) {
         }
     );
 }
+function showVoteModalButton() {
+    voteModalButton.removeClass("hidden");
+}
+
 function removeTag(tag) {
     $(tag).parent().remove();
 }
