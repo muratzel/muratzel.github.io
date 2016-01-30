@@ -73,7 +73,7 @@ function populateModal(id) {
                 tutorialTitleModalP.html(tutorial.get('title'));
                 tutorialTypeModalP.html(tutorial.get('type'));
                 tutorialDescriptionModalP.html(tutorial.get('description'));
-                tutorialLinkModalDiv.html(tutorial.get('link'));
+                tutorialLinkModalP.html(tutorial.get('link'));
                 var tags = tutorial.get('tags');
                 for (var i = 0; i < tags.length ; i++) {
                     tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "</span>");
