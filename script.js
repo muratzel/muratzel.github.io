@@ -45,7 +45,6 @@ var addTutorialButton = $('#addTutorialButton');
 var closeAddTutorialModalButton = $('#closeAddTutorialModalButton');
 var logoutButton = $('#logoutButton');
 
-
 //display functions
 function displayMainPage() {
     loginForm.addClass("hidden");
@@ -356,7 +355,40 @@ voteModalButton.click(
        }
  );
 
+//utility functions
+function deleteTutorials(){
+    var query = new Parse.Query(Tutorial);
+    query.find(
+        {
+            success: function(tutorials) {
+                for (var i = 0; i < tutorials.length; i++) {
+                    tutorials[i].destroy();
+                }
+            },
+            error: function (tutorials, error) {
 
+            }
+        }
+    );
+}
+function deleteUsers() {
+    var query = new Parse.Query(Users);
+    query.find(
+        {
+            success: function (users) {
+                for (var i = 0; i < users.length; i++) {
+                   users[i].destroy();
+                }
+            },
+            error: function (users, error) {
+
+            }
+        }
+    );
+}
+
+deleteUsers();
+deleteTutorials();
 var currentUser = Parse.User.current();
 
 if (currentUser) {
