@@ -31,7 +31,7 @@ function displaySignupForm() {
 }
 
 //button functions
-signupButton.click(displaySignupForm);
+newAccountButton.click(displaySignupForm);
 backButton.click(function () {
     location.reload();
 });
