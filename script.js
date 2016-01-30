@@ -33,8 +33,8 @@ function displaySignupForm() {
 //button functions
 loginButton.click(
     function () {
-        var username = $("#usernameLogin").val();
-        var password = $('#passwordLogin').val();
+        var username = $("#usernameLoginInput").val();
+        var password = $('#passwordLoginInput').val();
 
         Parse.User.logIn(username, password, {
             success: function (user) {
