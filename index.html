@@ -55,8 +55,23 @@
         <div id= "mainPageDiv">
             <div id="mainPageMenuDiv" class="col-md-12 well">
                 <button type="button" id="openAddTutorialButton" data-toggle ="modal" data-target="#addTutorialModal" class="btn btn-primary ">Add Tutorial</button>
-                <input class="input-lg" id="searchInput" placeholder="Search"/>
                 <button type="button" id="logoutButton" class="btn btn-primary pull-right">Logout</button>
+            </div>
+            <div id="mainPageSearchDiv" class="col-md-offset-2 col-md-8 well">
+                <form class="form-vertical">
+                    <div class="form-group">
+                        <input class="form-control input-lg" id="searchInput" placeholder="What do you want to learn about today?" />
+                    </div>
+                    <div class="form-group">
+                        <input class="input-lg" id="searchInput" placeholder="What do you want to learn about today?" />
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-inline"><input type="checkbox" value="Written Tutorial">Written Tutorial</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Video Tutorial">Video Tutorial</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="Research Paper">Research Paper</label>
+                        <label class="checkbox-inline"><input type="checkbox" value="University Course">University Course</label>
+                    </div>
+            </form>
             </div>
             <div id="mainPageContentDiv" class="col-md-offset-2 col-md-8 well">
                 <ul class="list-group" id="mainPageTutorialsDisplayUl">
