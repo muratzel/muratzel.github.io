@@ -372,7 +372,7 @@ function deleteTutorials(){
     );
 }
 function deleteUsers() {
-    var query = new Parse.Query(Users);
+    var query = new Parse.Query(Parse.User);
     query.find(
         {
             success: function (users) {
