@@ -89,6 +89,13 @@ function populateModal(tutorial) {
     }
 
     currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
+    var tutorials_viewed = currentUser.get('tutorials_viewed');
+    if ($.inArray($(tutorial).attr("id"), tutorials_viewed) < 0) {
+        currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
+        tutorials_viewed.push($(tutorial).attr("id"));
+        currentUser.set("tutorials_viewed", tutorials_viewed);
+    }
+
     currentUser.save(null, {
         success: function (user) {
             updateClicksLeft();
@@ -174,6 +181,7 @@ signupButton.click(
             newUser.set("password", password);
             newUser.set("email", email);
             newUser.set("tutorials_voted", []);
+            newUser.set("tutorials_viewed", []);
             newUser.set("clicks_left", 15);
 
             newUser.signUp(null, {
