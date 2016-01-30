@@ -112,10 +112,12 @@ function populateModal(tutorial) {
                 tutorialRatingModalP.html(tutorial.get('rating'));
                 tutorialVotesModalP.html(tutorial.get('votes'));
                 if ($.inArray($(tutorial).attr("id"), currentUser.get('tutorials_voted'))<0) {
-                    ratingModalSpan.addClass("hidden");
+                    ratingModalSpan.removeClass("hidden");
+                    tutorialAlreadyVotedModalP.addClass("hidden");
                 }
                 else {
-                    tutorialAlreadyVotedModalP.addClass("hidden");
+                    ratingModalSpan.addClass("hidden");
+                    tutorialAlreadyVotedModalP.removeClass("hidden");
                 }
                 tutorialIdModalInput.val(tutorial.id);
                 voteModalButton.addClass("hidden");
