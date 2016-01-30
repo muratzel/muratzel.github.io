@@ -44,8 +44,8 @@ loginButton.click(
                 location.reload();
             },
             error: function (user, error) {
-                $('#usernameLogin').addClass('has-error');
-                $('#passwordLogin').addClass('has-error');
+                $('#usernameLoginInput').addClass('has-error');
+                $('#passwordLoginInput').addClass('has-error');
             }
         });
     }
@@ -59,7 +59,7 @@ signupButton.click(
         var email = $('#emailInput').val();
 
         if (password.localeCompare(passwordConfirm)) {
-            $('#passwordConfirmDiv').addClass('has-error');
+            $('#passwordConfirmInput').addClass('has-error');
         }
         else {
             var newUser = new Parse.User();
