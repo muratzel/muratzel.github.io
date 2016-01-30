@@ -9,6 +9,7 @@ var signupForm = $("#signupForm");
 
 //divs handles
 var mainPageDiv = $("#mainPageDiv");
+var tagListDiv = $('#tagListDiv');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -17,6 +18,7 @@ var newAccountButton = $('#newAccountButton');
 var signupButton = $('#signupButton');
 var backButton = $('#backButton');
 
+var addTagButton = $('#addTagButton');
 var addTutorialButton = $('#addTutorialButton');
 var logoutButton = $('#logoutButton');
 
@@ -87,13 +89,33 @@ signupButton.click(
 backButton.click(function () {
     location.reload();
 });
+addTagButton.click(function () {
+    tagListDiv.append("<a href='#' class = 'list-group-item'>" + $('addTagInput').val() + "</a>");
+    $('addTagInput').val = '';
+})
 addTutorialButton.click(function () {
 
     var newTutorial = new Tutorial();
+
+    newTutorial.set("type",$('#tutorialTypeSelect').val());
     newTutorial.set("title", $('#tutorialTitleInput').val());
     newTutorial.set("description", $('#tutorialDescriptionTextarea').val());
-    newTutorial.set("link", $('#tutorialLinkInput')
+    newTutorial.set("link", $('#tutorialLinkInput').val());
 
+    var tags = [];
+    $('#tagListDiv').children().each(function () {
+        tags.push(this.val());
+    });
+    newTutorial.set("tags", tags);
+
+    newTutorial.save(null,
+        {
+            success: function (tutorial) {
+            },
+            error: function (tutorial, error) {
+            }
+        }
+    );
 });
 logoutButton.click(
     function () {
