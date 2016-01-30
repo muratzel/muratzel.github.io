@@ -73,7 +73,7 @@ function populateWithTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></li>");
+                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></div>");
                 }
             },
             error: function (schedules, error) {
@@ -90,6 +90,8 @@ function populateWithViewedTutorials() {
 
     query.descending("createdAt");
     query.containedIn("objectId", tutorials_viewed);
+    mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item'><h4 class='col-md-12'>Viewed Tutorials</h4></div>");
+
     query.find(
         {
             success: function (tutorials) {
@@ -247,7 +249,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                mainPageTutorialsDisplayUl.append('<div class="row list-group-item" onclick = "populateModal(this);" id="' + tutorial.id + '"><h3 class="col-md-12">' + tutorial.get('title') + '</h3><h3 class="col-md-12"><small>' + tutorial.get('rating') + '(' + tutorial.get('votes') + ' voters)</small></h3></li>');
+                mainPageTutorialsDisplayUl.append('<div class="row list-group-item" onclick = "populateModal(this);" id="' + tutorial.id + '"><h3 class="col-md-12">' + tutorial.get('title') + '</h3><h3 class="col-md-12"><small>' + tutorial.get('rating') + '(' + tutorial.get('votes') + ' voters)</small></h3></div>');
             },
             error: function (tutorial, error) {
             }
