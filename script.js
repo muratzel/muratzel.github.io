@@ -278,13 +278,13 @@ voteModalButton.click(
            else if (!rating2.html().localeCompare('2')) {
                rating = parseInt(rating2);
            }
-           else if (!rating3.html().attr('id').localeCompare('3')) {
+           else if (!rating3.html().localeCompare('3')) {
                rating = parseInt(rating3);
            }
-           else if (!rating4.html().attr('id').localeCompare('4')) {
+           else if (!rating4.html().localeCompare('4')) {
                rating = parseInt(rating4);
            }
-           else if (!rating5.html().attr('id').localeCompare('5')) {
+           else if (!rating5.html().localeCompare('5')) {
                rating = parseInt(rating5);
            }
 
