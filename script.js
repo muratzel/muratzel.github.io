@@ -191,7 +191,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h3 class='col-md-12'>" + tutorial.get('title') + "</h3><h3 class='col-md-12'><small>" + tutorial.get('rating') + "(" + tutorial.get('votes') + " voters)</small></h3></li>");
+                mainPageTutorialsDisplayUl.append('<div class="row list-group-item" onclick = "populateModal(this);" id="' + tutorial.id + '"><h3 class="col-md-12">' + tutorial.get('title') + '</h3><h3 class="col-md-12"><small>' + tutorial.get('rating') + '(' + tutorial.get('votes') + ' voters)</small><small class = "pull-right"><span class="starRating"><input id="rating1" type="radio" name="rating" value="1"><label for="rating1">1</label><input id="rating2" type="radio" name="rating" value="2"><label for="rating2">2</label><input id="rating3" type="radio" name="rating" value="3" checked><label for="rating3">3</label><input id="rating4" type="radio" name="rating" value="4"><label for="rating4">4</label><input id="rating5" type="radio" name="rating" value="5"><label for="rating5">5</label></span></small></h3></li>');
             },
             error: function (tutorial, error) {
             }
