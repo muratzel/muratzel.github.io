@@ -288,11 +288,15 @@ voteModalButton.click(
                rating = parseInt(rating5);
            }
 
+           alert(rating);
            var query = new Parse.Query(Tutorial);
            query.get(tutorialIdModalInput.attr("id"),
            {
                success: function (tutorial) {
-                   tutorial.set('rating',((tutorial.get('rating')*tutorial.get('votes')) + rating)/(tutorial.get('votes')+1));
+                   alert(1111);
+                   alert(tutorial.get('rating') * tutorial.get('votes') + rating) / (tutorial.get('votes') + 1);
+                   tutorial.set('rating', (tutorial.get('rating') * tutorial.get('votes') + rating) / (tutorial.get('votes') + 1));
+                   
                    tutorial.set('votes', tutorial.get('votes') + 1);
                    tutorial.save();
                },
