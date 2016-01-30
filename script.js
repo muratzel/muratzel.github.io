@@ -119,9 +119,6 @@ function populateModal(tutorial) {
         }
     );
 }
-function showVoteModalButton() {
-    voteModalButton.removeClass("hidden");
-}
 
 function removeTag(tag) {
     $(tag).parent().remove();
@@ -227,6 +224,12 @@ logoutButton.click(
     function () {
         Parse.User.logOut();
         location.reload();
+    }
+);
+ratingModalSpan.click(
+    function (event) {
+        voteModalButton.removeClass("hidden");
+        alert(event.target.nodeName);
     }
 );
 voteModalButton.click(
