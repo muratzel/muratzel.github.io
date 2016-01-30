@@ -363,6 +363,7 @@ function deleteTutorials(){
             success: function(tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
                     tutorials[i].destroy();
+                    tutorials[i].save();
                 }
             },
             error: function (tutorials, error) {
@@ -371,13 +372,16 @@ function deleteTutorials(){
         }
     );
 }
-function deleteUsers() {
+function restartUsers() {
     var query = new Parse.Query(Parse.User);
     query.find(
         {
             success: function (users) {
                 for (var i = 0; i < users.length; i++) {
-                   users[i].destroy();
+                    users[i].set("tutorials_voted", []);
+                    users[i].set("tutorials_viewed", []);
+                    users[i].set("clicks_left", 15);
+                    users[i].save();
                 }
             },
             error: function (users, error) {
