@@ -16,11 +16,11 @@
 }
 
 #mainPageMenuDiv {
-	background-color: LightSalmon;
+	background-color: LightCoral;
 	border-color: bisque;
 	border-style: solid;
 	padding: 15px;
-	margin: 25px;
+	margin: auto;
 }
 
 #mainPageSearchDiv {
@@ -51,6 +51,16 @@
 	border-style: solid;
 	padding: 15px;
 	margin: 20px;
+}
+
+.title {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: Crimson;
+	font-variant: small-caps;
+}
+
+html, body {
+	height: 100%
 }
 
 img {
