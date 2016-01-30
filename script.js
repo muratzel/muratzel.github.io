@@ -23,6 +23,7 @@ var tutorialTagsModalDiv = $('#tutorialTagsModalDiv');
 var tutorialRatingModalP = $('#tutorialRatingModalP');
 var tutorialVotesModalP = $('#tutorialVotesModalP');
 var ratingModalSpan = $('#ratingModalSpan');
+var tutorialAlreadyVotedModalP = $('#tutorialAlreadyVotedModalP')
 var voteModalButton = $('#voteModalButton');
 var tutorialIdModalInput = $('#tutorialIdModalInput');
 var rating1 = $('#rating1');
@@ -110,6 +111,12 @@ function populateModal(tutorial) {
                 }
                 tutorialRatingModalP.html(tutorial.get('rating'));
                 tutorialVotesModalP.html(tutorial.get('votes'));
+                if ($.inArray($(tutorial).attr("id"), currentUser.get('tutorials_voted'))<0) {
+                    ratingModalSpan.addClass("hidden");
+                }
+                else {
+                    tutorialAlreadyVotedModalP.addClass("hidden");
+                }
                 tutorialIdModalInput.val(tutorial.id);
                 voteModalButton.addClass("hidden");
                 $('#showTutorialModal').modal('toggle');
@@ -289,16 +296,19 @@ voteModalButton.click(
            }
 
            var query = new Parse.Query(Tutorial);
-           alert(tutorialIdModalInput.attr("value"));
            query.get(tutorialIdModalInput.attr("value"),
            {
                success: function (tutorial) {
-                   alert(1111);
-                   alert(tutorial.get('rating') * tutorial.get('votes') + rating) / (tutorial.get('votes') + 1);
                    tutorial.set('rating', (tutorial.get('rating') * tutorial.get('votes') + rating) / (tutorial.get('votes') + 1));
-                   
                    tutorial.set('votes', tutorial.get('votes') + 1);
                    tutorial.save();
+
+                   var currentUser = Parse.User.current();
+                   var tutorials_voted = currentUser.get("tutorials_voted");
+                   tutorials_voted.push(tutorialIdModalInput.attr("value"));
+                   currentUser.set("tutorials_voted", tutorials_voted);
+                   currentUser.save();
+
                },
                error: function (tutorial, error) {
 
