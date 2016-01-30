@@ -80,7 +80,7 @@ signupButton.click(
 backButton.click(function () {
     location.reload();
 });
-logoutBtn.click(
+logoutButton.click(
     function () {
         Parse.User.logOut();
         location.reload();
