@@ -41,6 +41,8 @@ function displaySignupForm() {
     signupForm.removeClass("hidden");
     mainPageDiv.addClass("hidden");
 }
+
+//populate stuff
 function populateWithTutorials() {
     var query = new Parse.Query(Tutorial);
     query.find(
@@ -55,6 +57,9 @@ function populateWithTutorials() {
             }
         }
     );
+}
+function populateModal() {
+
 }
 
 //button functions
