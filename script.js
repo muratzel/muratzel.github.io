@@ -52,7 +52,7 @@ function displaySignupForm() {
     mainPageDiv.addClass("hidden");
 }
 
-//populate stuff
+//populate/depopulate stuff
 function populateWithTutorials() {
     var query = new Parse.Query(Tutorial);
     query.find(
@@ -91,6 +91,10 @@ function populateModal(tutorial) {
 function removeTag(tag) {
     $(tag).parent().remove();
 }
+function updateClicksLeft() {
+    var currentUser = Parse.User.current();
+    $('#clicksLeftP').html(currentUser.get("clicks_left"));
+}
 
 //button functions
 loginButton.click(
@@ -126,7 +130,7 @@ signupButton.click(
             newUser.set("username", username);
             newUser.set("password", password);
             newUser.set("email", email);
-            newUser.set("views_left", 15);
+            newUser.set("clicks_left", 15);
 
             newUser.signUp(null, {
                 success: function (user) {
@@ -194,6 +198,7 @@ var currentUser = Parse.User.current();
 
 if (currentUser) {
     displayMainPage();
+    updateClicksLeft();
 }
 else {
     displayLoginForm();
