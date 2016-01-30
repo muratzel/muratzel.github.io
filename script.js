@@ -273,26 +273,22 @@ voteModalButton.click(
        function () {
            var rating = 0;
            if (!rating1.html().localeCompare('1')) {
-               rating = parseInt(rating1);
+               rating = 1
            }
-           else if (!rating2.html().localeCompare('2')) {
-               rating = parseInt(rating2);
+           else if (!rating2.html().localeCompare('1')) {
+               rating = 2;
            }
-           else if (!rating3.html().localeCompare('3')) {
-               rating = parseInt(rating3);
+           else if (!rating3.html().localeCompare('1')) {
+               rating = 3;
            }
-           else if (!rating4.html().localeCompare('4')) {
-               rating = parseInt(rating4);
+           else if (!rating4.html().localeCompare('1')) {
+               rating = 4;
            }
-           else if (!rating5.html().localeCompare('5')) {
-               rating = parseInt(rating5);
+           else if (!rating5.html().localeCompare('1')) {
+               rating = 5;
            }
 
-           alert(rating1.html());
-           alert(rating2.html());
-           alert(rating3.html());
-           alert(rating4.html());
-           alert(rating5.html());
+           alert(rating);
 
            var query = new Parse.Query(Tutorial);
            query.get(tutorialIdModalInput.attr("id"),
