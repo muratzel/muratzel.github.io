@@ -293,7 +293,8 @@ voteModalButton.click(
            {
                success: function (tutorial) {
                    tutorial.set('rating',((tutorial.get('rating')*tutorial.get('votes')) + rating)/(tutorial.get('votes')+1));
-                   tutorial.set('votes',tutorial.get('votes')+1);
+                   tutorial.set('votes', tutorial.get('votes') + 1);
+                   tutorial.save();
                },
                error: function (tutorial, error) {
 
