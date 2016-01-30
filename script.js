@@ -12,6 +12,12 @@ var mainPageDiv = $("#mainPageDiv");
 var tagListDiv = $('#tagListDiv');
 var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv');
 
+//modal handles
+var tutorialTitleModal = $('#tutorialTitleModal');
+var tutorialTypeModal = $('#tutorialTypeModal');
+var tutorialDescriptionModal = $('#tutorialDescriptionModal');
+var tutorialLinkModal = $('#tutorialLinkModal');
+
 //button handles
 var loginButton = $('#loginButton');
 var newAccountButton = $('#newAccountButton');
@@ -58,8 +64,21 @@ function populateWithTutorials() {
         }
     );
 }
-function populateModal() {
+function populateModal(id) {
+    var query = new Parse.Query(Tutorial);
+    query.get(id,
+        {
+            success: function (tutorial) {
+                tutorialTitleModal.html(tutorial.get('title'));
+                tutorialTypeModal.html(tutorial.get('type'));
+                tutorialDescriptionModal.html(tutorial.get('description'));
+                tutorialLinkModal.html(tutorial.get('link'));
+            },
+            error: function (tutorial, error) {
 
+            }
+        }
+    );
 }
 
 //button functions
