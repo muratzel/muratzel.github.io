@@ -28,6 +28,7 @@ var backButton = $('#backButton');
 
 var addTagButton = $('#addTagButton');
 var addTutorialButton = $('#addTutorialButton');
+var closeAddTutorialModal = $('#closeAddTutorialModal');
 var logoutButton = $('#logoutButton');
 
 
@@ -86,7 +87,6 @@ function populateModal(tutorial) {
     );
 }
 function removeTag(tag) {
-    alert($(tag).parent());
     $(tag).parent().remove();
 }
 
@@ -168,6 +168,15 @@ addTutorialButton.click(function () {
         }
     );
 });
+closeAddTutorialModal.click(
+    function () {
+        $('#tutorialTypeSelect').val('');
+        $('#tutorialTitleInput').val('');
+        $('#tutorialDescriptionTextarea').val('');
+        $('#tutorialLinkInput').val('');
+        $('#tagListDiv').empty();
+    }
+);
 logoutButton.click(
     function () {
         Parse.User.logOut();
