@@ -230,39 +230,39 @@ ratingModalSpan.click(
     function (event) {
         voteModalButton.removeClass("hidden");
         if (!$(event.target).attr('id').localeCompare('rating1')) {
-            $('#rating1').prop('checked', true);
-            $('#rating2').prop('checked', false);
-            $('#rating3').prop('checked', false);
-            $('#rating4').prop('checked', false);
-            $('#rating5').prop('checked', false);
+            $('#rating1').attr('checked', true);
+            $('#rating2').attr('checked', false);
+            $('#rating3').attr('checked', false);
+            $('#rating4').attr('checked', false);
+            $('#rating5').attr('checked', false);
         }
         else if (!$(event.target).attr('id').localeCompare('rating2')){
-            $('#rating1').prop('checked', false);
-            $('#rating2').prop('checked', true);
-            $('#rating3').prop('checked', false);
-            $('#rating4').prop('checked', false);
-            $('#rating5').prop('checked', false);
+            $('#rating1').attr('checked', false);
+            $('#rating2').attr('checked', true);
+            $('#rating3').attr('checked', false);
+            $('#rating4').attr('checked', false);
+            $('#rating5').attr('checked', false);
         }
         else if (!$(event.target).attr('id').localeCompare('rating3')){
-            $('#rating1').prop('checked', false);
-            $('#rating2').prop('checked', false);
-            $('#rating3').prop('checked', true);
-            $('#rating4').prop('checked', false);
-            $('#rating5').prop('checked', false);
+            $('#rating1').attr('checked', false);
+            $('#rating2').attr('checked', false);
+            $('#rating3').attr('checked', true);
+            $('#rating4').attr('checked', false);
+            $('#rating5').attr('checked', false);
         }
         else if (!$(event.target).attr('id').localeCompare('rating4')){
-            $('#rating1').prop('checked', false);
-            $('#rating2').prop('checked', false);
-            $('#rating3').prop('checked', false);
-            $('#rating4').prop('checked', true);
-            $('#rating5').prop('checked', false);
+            $('#rating1').attr('checked', false);
+            $('#rating2').attr('checked', false);
+            $('#rating3').attr('checked', false);
+            $('#rating4').attr('checked', true);
+            $('#rating5').attr('checked', false);
         }
         else if (!$(event.target).attr('id').localeCompare('rating5')) {
-            $('#rating1').prop('checked', false);
-            $('#rating2').prop('checked', false);
-            $('#rating3').prop('checked', false);
-            $('#rating4').prop('checked', false);
-            $('#rating5').prop('checked', true);
+            $('#rating1').attr('checked', false);
+            $('#rating2').attr('checked', false);
+            $('#rating3').attr('checked', false);
+            $('#rating4').attr('checked', false);
+            $('#rating5').attr('checked', true);
         }
     }
 );
