@@ -67,7 +67,7 @@ signupButton.click(
 
             newUser.signUp(null, {
                 success: function (user) {
-                    location.reload()
+                    location.reload();
                 },
                 error: function (user, error) {
                 }
