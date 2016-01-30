@@ -57,7 +57,7 @@ function populateWithTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayDiv.append("<a href = '#' class='list-group-item' onclick = 'populateModal(this);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-md-offset-1'>" + tutorials[i].get('type') + "</small></h3></a>");
+                    mainPageTutorialsDisplayDiv.append("<a href = '#' class='list-group-item' onclick = 'populateModal(this);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-offset-1'>" + tutorials[i].get('type') + "</small></h3></a>");
                 }
             },
             error: function (schedules, error) {
@@ -164,7 +164,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                mainPageTutorialsDisplayDiv.append("<a href ='#' class='list-group-item' onclick = 'populateModal(this);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorial.id + "'><h3>" + tutorial.get('title') + "<small class='col-md-offset-1'>" + tutorial.get('type') + "</small></h3></a>");
+                mainPageTutorialsDisplayDiv.append("<a href ='#' class='list-group-item' onclick = 'populateModal(this);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorial.id + "'><h3>" + tutorial.get('title') + "<small class='col-offset-1'>" + tutorial.get('type') + "</small></h3></a>");
             },
             error: function (tutorial, error) {
             }
