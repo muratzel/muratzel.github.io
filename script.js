@@ -52,6 +52,7 @@ function displayMainPage() {
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
     populateWithTutorials();
+    populateWithViewedTutorials();
 }
 function displayLoginForm() {
     loginForm.removeClass("hidden");
@@ -358,8 +359,8 @@ var currentUser = Parse.User.current();
 
 if (currentUser) {
      displayMainPage();
-          updateClicksLeft();
-      }
+     updateClicksLeft();
+}
 else {
      displayLoginForm();
 }
