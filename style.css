@@ -1,0 +1,60 @@
+
+#pageBox {
+	background-color: bisque;
+	margin: 50px 10% 50px 10%;
+	padding: 20px 15px 0px 0px;
+	border-radius: 25px;
+}
+
+#mainPageDiv {
+	background: linear-gradient( to bottom right, salmon, bisque );
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	overflow: hidden;
+
+}
+
+#mainPageMenuDiv {
+	background-color: LightSalmon;
+	border-color: bisque;
+	border-style: solid;
+	padding: 15px;
+	margin: 25px;
+}
+
+#mainPageSearchDiv {
+	background-color: bisque;
+	border-radius: 25px;
+	border-width: medium;
+	border-color: salmon;
+	border-style: solid;
+	padding: 15px;
+	margin: 20px;
+}
+
+#mainPageContentDiv {
+	background-color: bisque;
+	border-radius: 25px;
+	border-width: medium;
+	border-color: salmon;
+	border-style: solid;
+	padding: 15px;
+	margin: 25px;
+}
+
+#mainPageClicksLeftDiv {
+	background-color: bisque;
+	border-radius: 25px;
+	border-width: medium;
+	border-color: salmon;
+	border-style: solid;
+	padding: 15px;
+	margin: 20px;
+}
+
+img {
+	width: 100%;
+	height: 100px;
+	object-fit: contain;
+}

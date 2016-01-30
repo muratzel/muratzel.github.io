@@ -10,9 +10,7 @@ var signupForm = $("#signupForm");
 //divs handles
 var mainPageDiv = $("#mainPageDiv");
 var tagListDiv = $('#tagListDiv');
-
-//lists handles
-var mainPageTutorialsDisplayUl = $('#mainPageTutorialsDisplayUl');
+var mainPageTutorialsDisplayDiv = $('#mainPageTutorialsDisplayDiv');
 
 //modal handles
 var tutorialTitleModalP = $('#tutorialTitleModalP');
@@ -30,7 +28,6 @@ var backButton = $('#backButton');
 
 var addTagButton = $('#addTagButton');
 var addTutorialButton = $('#addTutorialButton');
-var closeAddTutorialModalButton = $('#closeAddTutorialModalButton');
 var logoutButton = $('#logoutButton');
 
 
@@ -52,14 +49,14 @@ function displaySignupForm() {
     mainPageDiv.addClass("hidden");
 }
 
-//populate/depopulate stuff
+//populate stuff
 function populateWithTutorials() {
     var query = new Parse.Query(Tutorial);
     query.find(
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></li>");
+                    mainPageTutorialsDisplayDiv.append("<a class='tutorialA list-group-item' onclick = 'populateModal(`"+tutorials[i].id+"`);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorials[i].id + "'><h3>" + tutorials[i].get('title') + "<small class='col-md-offset-1'>" + tutorials[i].get('type') + "</small></h3></a>");
                 }
             },
             error: function (schedules, error) {
@@ -68,26 +65,9 @@ function populateWithTutorials() {
         }
     );
 }
-function populateModal(tutorial) {
-
-    var currentUser = Parse.User.current();
-    var clicks_left = currentUser.get("clicks_left");
-
-    if (clicks_left <= 0) {
-        return;
-    }
-
-    currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
-    currentUser.save(null, {
-        success: function (user) {
-            updateClicksLeft();
-        },
-        error: function (user, error) {
-        }
-    });
-
+function populateModal(id) {
     var query = new Parse.Query(Tutorial);
-    query.get($(tutorial).attr("id"),
+    query.get(id,
         {
             success: function (tutorial) {
                 tutorialTitleModalP.html(tutorial.get('title'));
@@ -98,21 +78,12 @@ function populateModal(tutorial) {
                 for (var i = 0; i < tags.length ; i++) {
                     tutorialTagsModalDiv.append("<span class='label label-primary col-md-2'>" + tags[i] + "</span>");
                 }
-                $('#showTutorialModal').modal('toggle');
-                $('#showTutorialModal').modal('show');
             },
             error: function (tutorial, error) {
 
             }
         }
     );
-}
-function removeTag(tag) {
-    $(tag).parent().remove();
-}
-function updateClicksLeft() {
-    var currentUser = Parse.User.current();
-    $('#clicksLeftP').html(currentUser.get("clicks_left"));
 }
 
 //button functions
@@ -149,8 +120,6 @@ signupButton.click(
             newUser.set("username", username);
             newUser.set("password", password);
             newUser.set("email", email);
-            newUser.set("tutorials_voted", []);
-            newUser.set("clicks_left", 15);
 
             newUser.signUp(null, {
                 success: function (user) {
@@ -167,7 +136,7 @@ backButton.click(function () {
     location.reload();
 });
 addTagButton.click(function () {
-    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val() + "<button type='button' class='close' onclick = 'removeTag(this);'>&times;</button></span>");
+    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val() + "<button type='button' class='close sm'>&times;</button></span>");
     $('#addTagInput').val('');
 })
 addTutorialButton.click(function () {
@@ -178,35 +147,23 @@ addTutorialButton.click(function () {
     newTutorial.set("title", $('#tutorialTitleInput').val());
     newTutorial.set("description", $('#tutorialDescriptionTextarea').val());
     newTutorial.set("link", $('#tutorialLinkInput').val());
-    newTutorial.set("poster", Parse.User.current().get("username"));
-    newTutorial.set("rating", 0);
-    newTutorial.set("votes", 0);
 
     var tags = [];
     $('#tagListDiv').children().each(function () {
-        tags.push($(this).text().slice(0,-1));
+        tags.push($(this).text().slice(0, -1));
     });
     newTutorial.set("tags", tags);
 
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h3 class='col-md-12'>" + tutorial.get('title') + "</h3><h3 class='col-md-12'><small>" + tutorial.get('rating') + "(" + tutorial.get('votes') + " voters)</small></h3></li>");
+                mainPageTutorialsDisplayDiv.append("<a href ='#' class='tutorialA list-group-item' onclick = 'populateModal(`" + tutorial.id + "`);' data-toggle ='modal' data-target='#showTutorialModal' id='" + tutorial.id + "'><h3>" + tutorial.get('title') + "<small class='col-md-offset-1'>" + tutorial.get('type') + "</small></h3></a>");
             },
             error: function (tutorial, error) {
             }
         }
     );
 });
-closeAddTutorialModalButton.click(
-    function () {
-        $('#tutorialTitleInput').val('');
-        $('#tutorialDescriptionTextarea').val('');
-        $('#tutorialLinkInput').val('');
-        $('#addTagInput').val('');
-        $('#tagListDiv').empty();
-    }
-);
 logoutButton.click(
     function () {
         Parse.User.logOut();
@@ -218,7 +175,6 @@ var currentUser = Parse.User.current();
 
 if (currentUser) {
     displayMainPage();
-    updateClicksLeft();
 }
 else {
     displayLoginForm();
