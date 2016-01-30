@@ -391,7 +391,7 @@ function restartUsers() {
     );
 }
 
-deleteUsers();
+restartUsers();
 deleteTutorials();
 var currentUser = Parse.User.current();
 
