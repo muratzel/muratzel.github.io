@@ -24,6 +24,11 @@ var tutorialRatingModalP = $('#tutorialRatingModalP');
 var tutorialVotesModalP = $('#tutorialVotesModalP');
 var ratingModalSpan = $('#ratingModalSpan');
 var voteModalButton = $('#voteModalButton');
+var rating1 = $('#rating1');
+var rating2 = $('#rating2');
+var rating3 = $('#rating3');
+var rating4 = $('#rating4');
+var rating5 = $('#rating5');
 
 //button handles
 var loginButton = $('#loginButton');
@@ -224,6 +229,16 @@ logoutButton.click(
         location.reload();
     }
 );
+voteModalButton.click(
+    function () {
+        alert(rating1.is(':checked'));
+        alert(rating2.is(':checked'));
+        alert(rating3.is(':checked'));
+        alert(rating4.is(':checked'));
+        alert(rating5.is(':checked'));
+    }
+);
+
 
 var currentUser = Parse.User.current();
 
