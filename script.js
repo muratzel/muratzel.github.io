@@ -230,55 +230,50 @@ ratingModalSpan.click(
     function (event) {
         voteModalButton.removeClass("hidden");
         if (!$(event.target).attr('id').localeCompare('rating1')) {
-            $('#rating1').attr('checked', true);
-            $('#rating2').attr('checked', false);
-            $('#rating3').attr('checked', false);
-            $('#rating4').attr('checked', false);
-            $('#rating5').attr('checked', false);
-            alert(1);
+            rating1.html('1');
+            rating2.html('0');
+            rating3.html('0');
+            rating4.html('0');
+            rating5.html('0');
         }
         else if (!$(event.target).attr('id').localeCompare('rating2')){
-            $('#rating1').attr('checked', false);
-            $('#rating2').attr('checked', true);
-            $('#rating3').attr('checked', false);
-            $('#rating4').attr('checked', false);
-            $('#rating5').attr('checked', false);
-            alert(2);
+            rating1.html('0');
+            rating2.html('1');
+            rating3.html('0');
+            rating4.html('0');
+            rating5.html('0');
         }
         else if (!$(event.target).attr('id').localeCompare('rating3')){
-            $('#rating1').attr('checked', false);
-            $('#rating2').attr('checked', false);
-            $('#rating3').attr('checked', true);
-            $('#rating4').attr('checked', false);
-            $('#rating5').attr('checked', false);
-            alert(3);
+            rating1.html('0');
+            rating2.html('0');
+            rating3.html('1');
+            rating4.html('0');
+            rating5.html('0');
         }
         else if (!$(event.target).attr('id').localeCompare('rating4')){
-            $('#rating1').attr('checked', false);
-            $('#rating2').attr('checked', false);
-            $('#rating3').attr('checked', false);
-            $('#rating4').attr('checked', true);
-            $('#rating5').attr('checked', false);
-            alert(4);
+            rating1.html('0');
+            rating2.html('0');
+            rating3.html('0');
+            rating4.html('1');
+            rating5.html('0');
         }
         else if (!$(event.target).attr('id').localeCompare('rating5')) {
-            $('#rating1').attr('checked', false);
-            $('#rating2').attr('checked', false);
-            $('#rating3').attr('checked', false);
-            $('#rating4').attr('checked', false);
-            $('#rating5').attr('checked', true);
-            alert(5);
+            rating1.html('0');
+            rating2.html('0');
+            rating3.html('0');
+            rating4.html('0');
+            rating5.html('1');
         }
     }
 );
 
 voteModalButton.click(
        function () {
-           alert(rating1.is(':checked'));
-           alert(rating2.is(':checked'));
-           alert(rating3.is(':checked'));
-           alert(rating4.is(':checked'));
-           alert(rating5.is(':checked'));
+           alert(rating1.html());
+           alert(rating2.html());
+           alert(rating3.html());
+           alert(rating4.html());
+           alert(rating5.html());
        }
 );
 
