@@ -69,7 +69,7 @@
                 <div class="modal-content text-center">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">Create New Modal</h3>
+                        <h3 class="modal-title">Add New Tutorial</h3>
                     </div>
                     <div class="modal-body">
                         <form role="form" class="form-horizontal">
@@ -80,10 +80,15 @@
                                 <textarea id="tutorialDescriptionTextarea" placeholder="Description" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <ul id="tagList" class="list-inline list-group col-md-12">
-                                </ul>
-                                <input id="addTagInput" placeholder="Tag" class="form-control col-md-8"/>
-                                <button id="addTagButton" class="btn btn-primary col-md-4">Add Tag</button>
+                                <textarea id="tutorialLinkInput" placeholder="Copy Link" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div id="tagListDiv" class="list-inline list-group form-control">
+                                </div>
+                                <div class = "form-control">
+                                    <input id="addTagInput" placeholder="Tag" class="col-md-8"/>
+                                    <button id="addTagButton" class="btn btn-primary col-md-offset-1 col-md-3">Add Tag</button>
+                                </div>
                             </div>
                         </form>
                     </div>
