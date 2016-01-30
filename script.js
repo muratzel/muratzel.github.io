@@ -229,28 +229,63 @@ logoutButton.click(
 ratingModalSpan.click(
     function (event) {
         voteModalButton.removeClass("hidden");
-        alert($(event.target).attr('id'));
+        if ($(event.target).attr('id').localeCompare('rating1')) {
+            $('#rating1').prop('checked', true);
+            $('#rating2').prop('checked', false);
+            $('#rating3').prop('checked', false);
+            $('#rating4').prop('checked', false);
+            $('#rating5').prop('checked', false);
+        }
+        else if ($(event.target).attr('id').localeCompare('rating2')){
+            $('#rating1').prop('checked', false);
+            $('#rating2').prop('checked', true);
+            $('#rating3').prop('checked', false);
+            $('#rating4').prop('checked', false);
+            $('#rating5').prop('checked', false);
+        }
+        else if ($(event.target).attr('id').localeCompare('rating3')){
+            $('#rating1').prop('checked', false);
+            $('#rating2').prop('checked', false);
+            $('#rating3').prop('checked', true);
+            $('#rating4').prop('checked', false);
+            $('#rating5').prop('checked', false);
+        }
+        else if ($(event.target).attr('id').localeCompare('rating4')){
+            $('#rating1').prop('checked', false);
+            $('#rating2').prop('checked', false);
+            $('#rating3').prop('checked', false);
+            $('#rating4').prop('checked', true);
+            $('#rating5').prop('checked', false);
+        }
+        else if ($(event.target).attr('id').localeCompare('rating5')) {
+            $('#rating1').prop('checked', false);
+            $('#rating2').prop('checked', false);
+            $('#rating3').prop('checked', false);
+            $('#rating4').prop('checked', false);
+            $('#rating5').prop('checked', true);
+        }
     }
 );
+
 voteModalButton.click(
-    function () {
-        alert(rating1.is(':checked'));
-        alert(rating2.is(':checked'));
-        alert(rating3.is(':checked'));
-        alert(rating4.is(':checked'));
-        alert(rating5.is(':checked'));
-    }
+       function () {
+           alert(rating1.is(':checked'));
+           alert(rating2.is(':checked'));
+           alert(rating3.is(':checked'));
+           alert(rating4.is(':checked'));
+           alert(rating5.is(':checked'));
+       }
 );
 
 
 var currentUser = Parse.User.current();
 
 if (currentUser) {
-    displayMainPage();
-    updateClicksLeft();
-}
+     displayMainPage();
+          updateClicksLeft();
+      }
 else {
-    displayLoginForm();
+     displayLoginForm();
 }
 
 
