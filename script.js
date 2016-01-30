@@ -139,7 +139,7 @@ backButton.click(function () {
     location.reload();
 });
 addTagButton.click(function () {
-    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val() + "<button type='button' onclick = 'removeTag(this);' class='close sm'>&times;</button></span>");
+    tagListDiv.append("<span class='label label-primary col-md-2'>" + $('#addTagInput').val() + "<button type='button' class='close sm'>&times;</button></span>");
     $('#addTagInput').val('');
 })
 addTutorialButton.click(function () {
