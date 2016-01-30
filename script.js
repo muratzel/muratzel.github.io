@@ -47,7 +47,7 @@ function populateWithTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayDiv.append("<div class='tutorialDiv col-md-12' id='" + tutorials[i].id + "'><h3>"+tutorials[i].get('title')+"</h3></div>");
+                    mainPageTutorialsDisplayDiv.append("<div class='tutorialDiv col-md-12' id='" + tutorials[i].id + "'><h3>"+tutorials[i].get('title')+"<small>"+tutorials[i].get('type')+"</small></h3></div>");
                 }
             },
             error: function (schedules, error) {
