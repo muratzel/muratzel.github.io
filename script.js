@@ -231,11 +231,13 @@ addTutorialButton.click(function () {
 });
 closeAddTutorialModalButton.click(
     function () {
-        $('#tutorialTitleInput').val('');
-        $('#tutorialDescriptionTextarea').val('');
-        $('#tutorialLinkInput').val('');
-        $('#addTagInput').val('');
-        $('#tagListDiv').empty();
+        tutorialTitleInput.val('');
+        tutorialDescriptionTextarea.val('');
+        tutorialLinkInput.val('');
+        addTagInput.val('');
+        tutorialRatingModalP.val('');
+        tutorialVotesModalP.val('');
+        tagListDiv.empty();
     }
 );
 logoutButton.click(
