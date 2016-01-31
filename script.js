@@ -76,10 +76,14 @@ function populateWithTutorials() {
 
         mainPageTutorialsDisplayUl.empty();
         
-        if($('#seachInput').val())
+        if ($('#seachInput').val()) {
             var keywords = $('#seachInput').val().split(" ");
-        else
+            alert(1);
+        }
+        else {
             var keywords = [];
+            alert(2);
+        }
 
         var writtenTutorial = $('#writtenTutorialCheckbox').is(':checked');
         var videoTutorial = $('#videoTutorialCheckbox').is(':checked');
