@@ -156,7 +156,7 @@ function populateWithTutorials() {
                         else if (keywords.length == 0 && (sortBy == 0 || sortBy == 1)) {
                             scores.push([tutorialId, tutorialRating]);
                         }
-                        else {
+                        else if (keywords.length == 0){
                             alert()
                             scores.push([tutorialId, tutorialVotes]);
                         }
