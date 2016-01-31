@@ -366,7 +366,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                populateWithTutorials(0);
+                populateWithTutorials(1);
                 var currentUser = Parse.User.current();
                 currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
                 currentUser.save();
