@@ -164,7 +164,7 @@ function populateWithTutorials() {
                     scores.sort(function (a, b) { return b[1] - a[1] });
 
                     for (var i = 0; i < scores.length; i++) {
-
+                        alert(scores[i]);
                         var query = new Parse.Query(Tutorial);
                         query.get(scores[i][0],
                             {
