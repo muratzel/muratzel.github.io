@@ -264,8 +264,6 @@ addTutorialButton.click(function () {
     newTutorial.set("rating", 0);
     newTutorial.set("votes", 0);
 
-    alert(newTutorial.get("poster"));
-
     var tags = [];
     $('#tagListDiv').children().each(function () {
         tags.push($(this).text().slice(0,-1));
@@ -371,9 +369,11 @@ voteModalButton.click(
 
                    if (rating >= 3) {
                        var query = new Parse.Query(Parse.User);
-                       query.equalTo("username", tutorial.get("poster"));  // find all the women
+                       query.equalTo("username", tutorial.get("poster"));
+                       alert(tutorial.get("poster"));
                        query.find({
                            success: function (user) {
+                               alert(user.get("username"));
                                user.set("clicks_left", user.get("clicks_left") + 2);
                                user.save();
 
