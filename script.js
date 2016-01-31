@@ -181,6 +181,10 @@ function updateClicksLeft() {
             success: function (bonuses) {
                 currentUser.set("clicks_left", bonuses.length * 3 + currentUser.get('clicks_left'));
                 currentUser.save();
+                for (var i = 0; i < bonuses.length; i++) {
+                    bonuses[i].destroy();
+                    bonuses[i].save();
+                }
             },
             error: function (bonuses, error) {
 
