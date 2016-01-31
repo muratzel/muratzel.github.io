@@ -201,14 +201,13 @@ function populateWithViewedTutorials() {
 
     var query = new Parse.Query(Tutorial);
     var currentUser = Parse.User.current();
-    var viewed_tutorials = currentUser.get('viewed_tutorials');
+    var tutorials_viewed = currentUser.get('tutorials_viewed');
 
     query.descending("createdAt");
-    query.containedIn("objectId", viewed_tutorials);
+    query.containedIn("objectId", tutorials_viewed);
 
     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>Viewed Tutorials</b></h2></div>");
 
-    alert(viewed_tutorials);
     query.find(
         {
             success: function (tutorials) {
