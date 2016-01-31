@@ -616,6 +616,8 @@ function readTextFile(file) {
     rawFile.send(null);
 }
 
+readTextFile('Desciptions.txt');
+
 var currentUser = Parse.User.current();
 
 
