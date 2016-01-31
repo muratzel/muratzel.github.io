@@ -78,6 +78,7 @@ function populateWithTutorials() {
         
         if ($('#seachInput').val()) {
             var keywords = $('#seachInput').val().split(" ");
+            alert(1);
         }
         else {
             var keywords = [];
