@@ -158,7 +158,7 @@ function populateWithTutorials() {
                         }
                     }
 
-                    scores.sort(function (a, b) { return a[1] - b[1] });
+                    scores.sort(function (a, b) { return b[1] - a[1] });
 
                     for (var i = 0; i < scores.length; i++) {
 
