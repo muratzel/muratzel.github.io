@@ -152,7 +152,7 @@ function populateWithTutorials(startPage) {
                         start = start - 5;
                     for (var i = start; i <= start + 9; i++) {
                         if (tutorials.length+10<i*10)
-                            pageUl.append('<li class = "disabled"><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
+                            pageUl.append('<li class = "disabled"><a href="#">' + i + '</a></li>');
                         else
                             pageUl.append('<li><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
                     }
