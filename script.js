@@ -76,9 +76,8 @@ function populateWithTutorials() {
 
         mainPageTutorialsDisplayUl.empty();
         
-        alert($('#seachInput').val());
-        if ($('#seachInput').val()) {
-            var keywords = $('#seachInput').val().split(" ");
+        if ($('#searchInput').val()) {
+            var keywords = $('#searchInput').val().split(" ");
         }
         else {
             var keywords = [];
