@@ -89,9 +89,7 @@ function populateWithTutorials() {
         var universityCourse = $('#universityCourseCheckbox').is(':checked');
 
         var sortBy = $('#sortBySelect').val();
-
         var types = [];
-        var scores = [];
 
         if (!writtenTutorial && !videoTutorial && !researchPaper && !universityCourse) {
             types = ["Written Tutorial", "Video Tutorial", "Research Paper", "University Course"];
@@ -109,7 +107,12 @@ function populateWithTutorials() {
 
         var query = new Parse.Query(Tutorial);
         query.containedIn("type", types);
-
+        if(sortBy==0){
+            query.descending("rating");
+        }
+        else{
+            query.descending("votes");
+        }
         query.find(
             {
                 success: function (tutorials) {
@@ -120,62 +123,21 @@ function populateWithTutorials() {
                         var tutorialTitle = tutorials[i].get("title");
                         var tutorialDescription = tutorials[i].get("description");
                         var tutorialTags = tutorials[i].get("tags");
-                        var tutorialRating = tutorials[i].get("rating");
-                        var tutorialVotes = tutorials[i].get("votes");
-                        var tutorialId = tutorials[i].id;
 
                         for (var j = 0; j < keywords.length; j++) {
-                            if (tutorialTitle.indexOf(keywords[j]) >= 0){
-                                if (sortBy == 0)
-                                    score = score + 5 * (tutorialRating+0.2);
-                                else if (sortBy == 1)
-                                    score = score + 5 * (tutorialRating+0.2) * (tutorialRating+0.2);
-                                else
-                                    score = score + 5 * (tutorialVotes+0.2);
+                            if (tutorialTitle.indexOf(keywords[j]) >= 0) {
+                                score = 1;
                             }
                             if (tutorialDescription.indexOf(keywords[j]) >= 0) {
-                                if (sortBy == 0)
-                                    score = score + 3;
-                                else if (sortBy == 1)
-                                    score = score + 3 * tutorialRating * tutorialRating;
-                                else
-                                    score = score + 3 * tutorialVotes;
+                                score = 1;
                             }
                             if ($.inArray(keywords[j], tutorialTags) >= 0) {
-                                if (sortBy == 0)
-                                    score = score + 3;
-                                else if (sortBy == 1)
-                                    score = score + 3 * tutorialRating * tutorialRating;
-                                else
-                                    score = score + 3 * tutorialVotes;
+                                score = 1;
                             }
                         }
-                        if (score != 0){
-                            scores.push([tutorialId, score]);
+                        if (score != 0 || keywords.length == 0) {
+                            mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + ")</small></h4></div>");
                         }
-                        else if (keywords.length == 0 && (sortBy == 0 || sortBy == 1)) {
-                            scores.push([tutorialId, tutorialRating]);
-                        }
-                        else if (keywords.length == 0){
-                            scores.push([tutorialId, tutorialVotes]);
-                        }
-                    }
-
-                    scores.sort(function (a, b) { return b[1] - a[1] });
-
-                    for (var i = 0; i < scores.length; i++) {
-                        alert(scores[i]);
-                        var query = new Parse.Query(Tutorial);
-                        query.get(scores[i][0],
-                            {
-                                success: function (tutorial) {
-                                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h4 class='col-md-12'>" + tutorial.get('title') + "</h4><h4 class='col-md-12'><small>" + tutorial.get('rating') + " (from "+ tutorial.get('votes') +")</small></h4></div>");
-                                },
-                                error: function (tutorial, error) {
-
-                                }
-                            }
-                        );
                     }
                 },
                 error: function (tutorials, error) {
