@@ -66,6 +66,7 @@ function displaySignupForm() {
 
 //populate/depopulate stuff
 function populateWithTutorials() {
+    mainPageTutorialsDisplayUl.empty();
     var query = new Parse.Query(Tutorial);
     query.descending("createdAt");
     query.find(
