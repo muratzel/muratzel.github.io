@@ -185,6 +185,34 @@ function populateWithMyTutorials() {
                 for (var i = 0; i < tutorials.length; i++) {
                     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
                 }
+                $('#activeButton').val('0');
+            },
+            error: function (tutorials, error) {
+
+            }
+        }
+    );
+}
+
+function populateWithViewedTutorials() {
+
+    mainPageMyTutorialsDisplayUl.empty();
+
+    var query = new Parse.Query(Tutorial);
+    var currentUser = Parse.User.current();
+    var viewed_tutorials = currentUser.get('viewed_tutorials');
+
+    query.descending("createdAt");
+    query.containedIn("objectId", 'viewed_tutorials');
+    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>Viewed Tutorials</b></h2></div>");
+
+    query.find(
+        {
+            success: function (tutorials) {
+                for (var i = 0; i < tutorials.length; i++) {
+                    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
+                }
+                $('#activeButton').val('1');
             },
             error: function (tutorials, error) {
 
@@ -215,7 +243,10 @@ function populateModal(tutorial) {
     currentUser.save(null, {
         success: function (user) {
             updateClicksLeft();
-            populateWithMyTutorials();
+            if ($("#active_button").val('').localeCompare('0'))
+                populateWithMyTutorials();
+            else
+                populateWithViewedTutorials();
         },
         error: function (user, error) {
         }
@@ -451,10 +482,13 @@ removeFromMyTutorialsModalButton.click( function(){
 
                 var currentUser = Parse.User.current();
                 var my_tutorials = currentUser.get("my_tutorials");
-                my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials), 1);
+                my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials),1);
                 currentUser.set("my_tutorials", my_tutorials);
                 currentUser.save();
-                populateWithMyTutorials();
+                if ($("#active_button").val('').localeCompare('0'))
+                    populateWithMyTutorials();
+                else
+                    populateWithViewedTutorials();
 
             },
             error: function (tutorial, error) {
