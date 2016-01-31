@@ -117,11 +117,10 @@ function populateWithTutorials(startPage) {
             {
                 success: function (tutorials) {
 
-                    if(startPage*10>tutorials.length)
-                        end = tutorials.length;
-                    else
-                        end = startPage*10;
-                    for (var i = (startPage-1)*10; i < end; i++) {
+                    var i = 0;
+                    var numTutorials = 0;
+
+                    while(i<tutorials.length && numTutorials<startPage*10) {
 
                         var score = 0;
                         var tutorialTitle = tutorials[i].get("title");
@@ -140,8 +139,11 @@ function populateWithTutorials(startPage) {
                             }
                         }
                         if (score != 0 || keywords.length == 0) {
-                            mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + ")</small></h4></div>");
+                            if(numTutorials>=(startPage-1)*10)
+                                mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + ")</small></h4></div>");
+                            numTutorials = numTutorials + 1;                      
                         }
+                        i = i + 1;
                     }
 
                     var pageUl = $('#pageUl');
@@ -151,7 +153,7 @@ function populateWithTutorials(startPage) {
                     else
                         start = start - 5;
                     for (var i = start; i <= start + 9; i++) {
-                        if (tutorials.length+10<i*10)
+                        if (numTutorials+10<i*10)
                             pageUl.append('<li class = "disabled"><a href="#">' + i + '</a></li>');
                         else
                             pageUl.append('<li><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
