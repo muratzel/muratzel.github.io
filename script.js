@@ -114,7 +114,7 @@ function populateWithTutorials() {
                         var tutorialTitle = tutorials[i].get("title");
                         var tutorialDescription = tutorials[i].get("description");
                         var tutorialTags = tutorials[i].get("tags");
-                        var tutorialRating = tutorial[i].get("rating");
+                        var tutorialRating = tutorials[i].get("rating");
                         var tutorialVoters = tutorials[i].get("voters");
                         var tutorialId = tutorial[i].id;
 
