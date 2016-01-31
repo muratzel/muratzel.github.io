@@ -30,8 +30,9 @@ var tutorialTagsModalDiv = $('#tutorialTagsModalDiv');
 var tutorialRatingModalP = $('#tutorialRatingModalP');
 var tutorialVotesModalP = $('#tutorialVotesModalP');
 var ratingModalSpan = $('#ratingModalSpan');
-var tutorialAlreadyVotedModalP = $('#tutorialAlreadyVotedModalP')
+var tutorialAlreadyVotedModalP = $('#tutorialAlreadyVotedModalP');
 var voteModalButton = $('#voteModalButton');
+var removeFromMyTutorialsModalButton = $('#removeFromMyTutorialsModalButton');
 var tutorialIdModalInput = $('#tutorialIdModalInput');
 var rating1 = $('#rating1');
 var rating2 = $('#rating2');
@@ -182,7 +183,7 @@ function populateWithMyTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><button type='button' class='close btn-lg' onclick=''>&times;</button></div>");
+                    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
                 }
             },
             error: function (tutorials, error) {
@@ -242,6 +243,12 @@ function populateModal(tutorial) {
                 else {
                     ratingModalSpan.addClass("hidden");
                     tutorialAlreadyVotedModalP.removeClass("hidden");
+                }
+                if ($.inArray($(tutorial).attr("id"), currentUser.get('my_tutorials')) < 0) {
+                    removeFromMyTutorialsModalButton.addClass("hidden");
+                }
+                else {
+                    removeFromMyTutorialsModalButton.removeClass("hidden");
                 }
                 tutorialIdModalInput.val(tutorial.id);
                 voteModalButton.addClass("hidden");
@@ -434,6 +441,28 @@ ratingModalSpan.click(
         }
     }
 );
+
+removeFromMyTutorialsModalButton.click( function(){
+    
+    var query = new Parse.Query(Tutorial);
+    query.get(tutorialIdModalInput.attr("value"),
+    {
+        success: function (tutorial) {
+
+            var currentUser = Parse.User.current();
+            var my_tutorials = currentUser.get("my_tutorials");
+            my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials),1);
+            currentUser.set("my_tutorials", my_tutorials);
+            currentUser.save();
+            populateWithMyTutorials();
+
+        },
+        error: function (tutorial, error) {
+
+        }
+    }
+);
+
 
 voteModalButton.click(
        function () {
