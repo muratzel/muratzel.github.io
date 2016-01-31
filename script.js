@@ -150,8 +150,11 @@ function populateWithTutorials() {
                                     score = score + 3 * tutorialVoters;
                             }
                         }
-                        if (score != 0 || keywords.length == 0) {
+                        if (score != 0){
                             scores.push([tutorialId, score]);
+                        }
+                        else if (keywords.length == 0) {
+                            scores.push([tutorialId, tutorialRating]);
                         }
                     }
 
