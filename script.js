@@ -240,7 +240,7 @@ function populateModal(tutorial) {
         currentUser.set("tutorials_viewed", tutorials_viewed);
         currentUser.save();
         updateClicksLeft();
-        if ($("#activeButton").val('').localeCompare('0'))
+        if ($("#activeButton").val().localeCompare('0'))
             populateWithMyTutorials();
         else
             populateWithViewedTutorials();
