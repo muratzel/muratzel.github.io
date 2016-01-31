@@ -16,6 +16,11 @@ var mainPageTutorialsDisplayUl = $('#mainPageTutorialsDisplayUl');
 var mainPageViewedTutorialsDisplayUl = $('#mainPageViewedTutorialsDisplayUl');
 
 //modal handles
+var tutorialTitleInput = $('#tutorialTitleInput');
+var tutorialDescriptionTextarea = $('#tutorialDescriptionTextarea');
+var tutorialLinkInput = $('#tutorialLinkInput');
+var tagListDiv = $('#tagListDiv');
+var addTagInput = $('#addTagInput');
 var tutorialTitleModalP = $('#tutorialTitleModalP');
 var tutorialTypeModalP = $('#tutorialTypeModalP');
 var tutorialDescriptionModalP = $('#tutorialDescriptionModalP');
@@ -172,6 +177,25 @@ function updateClicksLeft() {
     $('#clicksLeftP').html(currentUser.get("clicks_left"));
 }
 
+function clearAddTutorialModal() {
+    tutorialTitleInput.val('');
+    tutorialDescriptionTextarea.val('');
+    tutorialLinkInput.val('');
+    tagListDiv.empty();
+    addTagInput.val('');
+}
+
+function clearShowTutorialModal() {
+    tutorialTitleModalP.val('');
+    tutorialTypeModalP.val('');
+    tutorialDescriptionModalP.val('');
+    tutorialLinkModalP.val('');
+    tutorialLinkModalP.attr('href','');
+    tutorialTagsModalDiv.empty();
+    tutorialRatingModalP.val('');
+    tutorialVotesModalP.val('');
+}
+
 //button functions
 loginButton.click(
     function () {
@@ -250,31 +274,19 @@ addTutorialButton.click(function () {
         {
             success: function (tutorial) {
                 populateWithTutorials();
+                var currentUser = Parse.User.current();
+                currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
+                currentUser.save();
+
+                updateClicksLeft();
+                clearAddTutorialModal();
             },
             error: function (tutorial, error) {
             }
         }
     );
 
-    var currentUser = Parse.User.current();
-    currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
-    currentUser.save();
-
-    updateClicksLeft();
-
 });
-closeAddTutorialModalButton.click(
-    function () {
-        tutorialTitleInput.val('');
-        tutorialDescriptionTextarea.val('');
-        tutorialLinkInput.val('');
-        tutorialLinkInput.attr("href", "");
-        addTagInput.val('');
-        tutorialRatingModalP.val('');
-        tutorialVotesModalP.val('');
-        tagListDiv.empty();
-    }
-);
 logoutButton.click(
     function () {
         Parse.User.logOut();
@@ -362,6 +374,8 @@ voteModalButton.click(
                            success: function (user) {
                                user.set("clicks_left", user.get("clicks_left") + 2);
                                user.save();
+
+                               clearShowTutorialModal();
                            },
                            error: function (user, error) {
 
