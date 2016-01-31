@@ -108,6 +108,9 @@ function populateWithTutorials() {
         var query = new Parse.Query(Tutorial);
         query.containedIn("type", types);
 
+        alert(keywords);
+        alert(types);
+
         query.find(
             {
                 success: function (tutorials) {
