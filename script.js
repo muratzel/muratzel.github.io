@@ -120,7 +120,7 @@ function populateWithTutorials(startPage) {
                     var i = 0;
                     var numTutorials = 0;
 
-                    while(i<tutorials.length && numTutorials<startPage*10) {
+                    while(i<tutorials.length) {
 
                         var score = 0;
                         var tutorialTitle = tutorials[i].get("title");
@@ -139,7 +139,7 @@ function populateWithTutorials(startPage) {
                             }
                         }
                         if (score != 0 || keywords.length == 0) {
-                            if(numTutorials>=(startPage-1)*10)
+                            if (numTutorials >= (startPage - 1) * 10 && numTutorials < startPage * 10)
                                 mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + ")</small></h4></div>");
                             numTutorials = numTutorials + 1;                      
                         }
