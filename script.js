@@ -240,7 +240,7 @@ function populateModal(tutorial) {
         currentUser.set("tutorials_viewed", tutorials_viewed);
         currentUser.save();
         updateClicksLeft();
-        if ($("#active_button").val('').localeCompare('0'))
+        if ($("#activeButton").val('').localeCompare('0'))
             populateWithMyTutorials();
         else
             populateWithViewedTutorials();
@@ -486,7 +486,7 @@ removeFromMyTutorialsModalButton.click( function(){
 
             }
         });
-        if ($("#active_button").val('').localeCompare('0'))
+        if ($("#activeButton").val().localeCompare('0'))
             populateWithMyTutorials();
         else
             populateWithViewedTutorials();
@@ -511,7 +511,7 @@ addToMyTutorialsModalButton.click(function () {
 
         }
     });
-    if ($("#active_button").val('').localeCompare('0'))
+    if ($("#activeButton").val().localeCompare('0'))
         populateWithMyTutorials();
     else
         populateWithViewedTutorials();
