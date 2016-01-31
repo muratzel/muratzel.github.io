@@ -238,19 +238,13 @@ function populateModal(tutorial) {
         currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
         tutorials_viewed.push($(tutorial).attr("id"));
         currentUser.set("tutorials_viewed", tutorials_viewed);
+        currentUser.save();
+        updateClicksLeft();
+        if ($("#active_button").val('').localeCompare('0'))
+            populateWithMyTutorials();
+        else
+            populateWithViewedTutorials();
     }
-
-    currentUser.save(null, {
-        success: function (user) {
-            updateClicksLeft();
-            if ($("#active_button").val('').localeCompare('0'))
-                populateWithMyTutorials();
-            else
-                populateWithViewedTutorials();
-        },
-        error: function (user, error) {
-        }
-    });
 
     var query = new Parse.Query(Tutorial);
     query.get($(tutorial).attr("id"),
@@ -487,16 +481,15 @@ removeFromMyTutorialsModalButton.click( function(){
                 my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials),1);
                 currentUser.set("my_tutorials", my_tutorials);
                 currentUser.save();
-                if ($("#active_button").val('').localeCompare('0'))
-                    populateWithMyTutorials();
-                else
-                    populateWithViewedTutorials();
-
             },
             error: function (tutorial, error) {
 
             }
         });
+        if ($("#active_button").val('').localeCompare('0'))
+            populateWithMyTutorials();
+        else
+            populateWithViewedTutorials();
     }
 );
 
@@ -512,16 +505,16 @@ addToMyTutorialsModalButton.click(function () {
             my_tutorials.push(tutorialIdModalInput.attr("value"));
             currentUser.set("my_tutorials", my_tutorials);
             currentUser.save();
-            if ($("#active_button").val('').localeCompare('0'))
-                populateWithMyTutorials();
-            else
-                populateWithViewedTutorials();
 
         },
         error: function (tutorial, error) {
 
         }
     });
+    if ($("#active_button").val('').localeCompare('0'))
+        populateWithMyTutorials();
+    else
+        populateWithViewedTutorials();
 }
 );
 
