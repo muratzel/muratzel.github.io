@@ -57,7 +57,7 @@ function displayMainPage() {
     loginForm.addClass("hidden");
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
-    populateWithTutorials(false,false);
+    populateWithTutorials(true,false);
     populateWithViewedTutorials();
 }
 function displayLoginForm() {
