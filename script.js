@@ -152,9 +152,9 @@ function populateWithTutorials(startPage) {
                         start = start - 5;
                     for (var i = start; i <= start + 9; i++) {
                         if (tutorials.length+10<i*10)
-                            page.Ul.append('<li class = "disabled"><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
+                            pageUl.append('<li class = "disabled"><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
                         else
-                            page.Ul.append('<li><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
+                            pageUl.append('<li><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
                     }
                 },
                 error: function (tutorials, error) {
