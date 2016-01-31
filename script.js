@@ -57,7 +57,7 @@ function displayMainPage() {
     loginForm.addClass("hidden");
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
-    populateWithTutorials(true,false);
+    populateWithTutorials(false,false);
     populateWithViewedTutorials();
 }
 function displayLoginForm() {
@@ -385,7 +385,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                populateWithTutorials(true,true);
+                populateWithTutorials(false,false);
                 var currentUser = Parse.User.current();
                 currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
                 currentUser.save();
