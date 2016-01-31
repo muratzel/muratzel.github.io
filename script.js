@@ -162,6 +162,7 @@ function populateWithTutorials() {
                     }
 
                     scores.sort(function (a, b) { return b[1] - a[1] });
+                    alert(scores);
 
                     for (var i = 0; i < scores.length; i++) {
 
