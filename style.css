@@ -53,6 +53,17 @@
 	margin: 20px;
 }
 
+
+#mainPageViewedTutorialsDiv {
+	background-color: bisque;
+	border-radius: 25px;
+	border-width: medium;
+	border-color: salmon;
+	border-style: solid;
+	padding: 15px;
+	margin: 20px;
+}
+
 .title {
 	font-family: "Lucida Console", Monaco, monospace;
 	color: Crimson;
