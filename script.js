@@ -57,7 +57,7 @@ function displayMainPage() {
     loginForm.addClass("hidden");
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
-    populateWithTutorials(false);
+    populateWithTutorials(1);
     populateWithViewedTutorials();
 }
 function displayLoginForm() {
@@ -72,7 +72,7 @@ function displaySignupForm() {
 }
 
 //populate/depopulate stuff
-function populateWithTutorials() {
+function populateWithTutorials(startPage) {
 
         mainPageTutorialsDisplayUl.empty();
         
@@ -117,7 +117,11 @@ function populateWithTutorials() {
             {
                 success: function (tutorials) {
 
-                    for (var i = 0; i < tutorials.length; i++) {
+                    if(startPage*10>tutorials.length)
+                        end = tutorials.length;
+                    else
+                        end = startPage*10;
+                    for (var i = (startPage-1)*10; i < end; i++) {
 
                         var score = 0;
                         var tutorialTitle = tutorials[i].get("title");
@@ -138,6 +142,19 @@ function populateWithTutorials() {
                         if (score != 0 || keywords.length == 0) {
                             mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + ")</small></h4></div>");
                         }
+                    }
+
+                    var pageUl = $('#pageUl');
+                    pageUl.empty();
+                    if (startPage <= 6)
+                        start = 1;
+                    else
+                        start = start - 5;
+                    for (var i = start; i <= start + 9; i++) {
+                        if (tutorials.length+10<i*10)
+                            page.Ul.append('<li class = "disabled"><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
+                        else
+                            page.Ul.append('<li><a href="#" onclick=populateWithTutorials(' + i + ')>' + i + '</a></li>');
                     }
                 },
                 error: function (tutorials, error) {
@@ -228,7 +245,6 @@ function populateModal(tutorial) {
         }
     );
 }
-
 function removeTag(tag) {
     $(tag).parent().remove();
 }
