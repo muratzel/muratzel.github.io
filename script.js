@@ -150,7 +150,7 @@ function populateWithTutorials() {
                                     score = score + 3 * tutorialVoters;
                             }
                         }
-                        if (score != 0 || !keywords) {
+                        if (score != 0 || keywords.length == 0) {
                             alert(keywords);
                             scores.push([tutorialId, score]);
                         }
