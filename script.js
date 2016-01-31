@@ -185,7 +185,7 @@ function populateWithMyTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageMyTutorialsDisplayUl.append("<a class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></a>");
+                    mainPageMyTutorialsDisplayUl.append("<a href = '#' class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></a>");
                 }
                 $('#activeButton').val('0');
             },
@@ -213,7 +213,7 @@ function populateWithViewedTutorials() {
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
+                    mainPageMyTutorialsDisplayUl.append("<a href = '#' class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></a>");
                 }
                 $('#activeButton').val('1');
             },
