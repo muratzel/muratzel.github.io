@@ -112,6 +112,7 @@ function populateWithTutorials() {
 
         alert(keywords);
         alert(types);
+        alert(sortBy);
 
         query.find(
             {
