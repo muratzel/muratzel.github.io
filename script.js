@@ -108,12 +108,12 @@ function populateWithTutorials() {
         var query = new Parse.Query(Tutorial);
         query.containedIn("type", types);
 
-        alert(types);
-
         query.find(
             {
                 success: function (tutorials) {
+
                     for (var i = 0; i < tutorials.length; i++) {
+
                         var score = 0;
                         var tutorialTitle = tutorials[i].get("title");
                         var tutorialDescription = tutorials[i].get("description");
