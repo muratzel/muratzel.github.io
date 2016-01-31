@@ -260,6 +260,8 @@ addTutorialButton.click(function () {
     currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
     currentUser.save();
 
+    updateClicksLeft();
+
 });
 closeAddTutorialModalButton.click(
     function () {
