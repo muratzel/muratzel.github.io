@@ -157,13 +157,11 @@ function populateWithTutorials() {
                             scores.push([tutorialId, tutorialRating]);
                         }
                         else if (keywords.length == 0){
-                            alert()
                             scores.push([tutorialId, tutorialVotes]);
                         }
                     }
 
                     scores.sort(function (a, b) { return b[1] - a[1] });
-                    alert(scores);
 
                     for (var i = 0; i < scores.length; i++) {
 
