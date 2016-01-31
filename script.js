@@ -264,6 +264,8 @@ addTutorialButton.click(function () {
     newTutorial.set("rating", 0);
     newTutorial.set("votes", 0);
 
+    alert(newTutorial.get("poster"));
+
     var tags = [];
     $('#tagListDiv').children().each(function () {
         tags.push($(this).text().slice(0,-1));
