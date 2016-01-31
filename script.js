@@ -32,6 +32,7 @@ var tutorialVotesModalP = $('#tutorialVotesModalP');
 var ratingModalSpan = $('#ratingModalSpan');
 var tutorialAlreadyVotedModalP = $('#tutorialAlreadyVotedModalP');
 var voteModalButton = $('#voteModalButton');
+var addToMyTutorialsModalButton = $('#addToMyTutorialsModalButton');
 var removeFromMyTutorialsModalButton = $('#removeFromMyTutorialsModalButton');
 var tutorialIdModalInput = $('#tutorialIdModalInput');
 var rating1 = $('#rating1');
@@ -232,14 +233,11 @@ function populateModal(tutorial) {
     }
 
     var tutorials_viewed = currentUser.get('tutorials_viewed');
-    var my_tutorials = currentUser.get('my_tutorials');
 
     if ($.inArray($(tutorial).attr("id"), tutorials_viewed) < 0) {
         currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
         tutorials_viewed.push($(tutorial).attr("id"));
         currentUser.set("tutorials_viewed", tutorials_viewed);
-        my_tutorials.push($(tutorial).attr("id"));
-        currentUser.set("my_tutorials", my_tutorials);
     }
 
     currentUser.save(null, {
@@ -278,9 +276,11 @@ function populateModal(tutorial) {
                     tutorialAlreadyVotedModalP.removeClass("hidden");
                 }
                 if ($.inArray($(tutorial).attr("id"), currentUser.get('my_tutorials')) < 0) {
+                    addToMyTutorialsModalButton.removeClass("hidden");
                     removeFromMyTutorialsModalButton.addClass("hidden");
                 }
                 else {
+                    addToMyTutorialsModalButton.addClass("hidden");
                     removeFromMyTutorialsModalButton.removeClass("hidden");
                 }
                 tutorialIdModalInput.val(tutorial.id);
@@ -498,6 +498,31 @@ removeFromMyTutorialsModalButton.click( function(){
             }
         });
     }
+);
+
+addToMyTutorialsModalButton.click(function () {
+
+    var query = new Parse.Query(Tutorial);
+    query.get(tutorialIdModalInput.attr("value"),
+    {
+        success: function (tutorial) {
+
+            var currentUser = Parse.User.current();
+            var my_tutorials = currentUser.get("my_tutorials");
+            my_tutorials.push(tutorialIdModalInput.attr("value"));
+            currentUser.set("my_tutorials", my_tutorials);
+            currentUser.save();
+            if ($("#active_button").val('').localeCompare('0'))
+                populateWithMyTutorials();
+            else
+                populateWithViewedTutorials();
+
+        },
+        error: function (tutorial, error) {
+
+        }
+    });
+}
 );
 
 
