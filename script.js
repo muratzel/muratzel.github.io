@@ -156,7 +156,6 @@ function populateWithTutorials() {
                     }
 
                     scores.sort(function (a, b) { return a[1] - b[1] });
-                    alert(scores);
 
                     for (var i = 0; i < scores.length; i++) {
 
@@ -164,7 +163,7 @@ function populateWithTutorials() {
                         query.get(scores[i][0],
                             {
                                 success: function (tutorial) {
-                                    mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h4 class='col-md-12'>" + tutorial.get('title') + "</h4></div>");
+                                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h4 class='col-md-12'>" + tutorial.get('title') + "</h4><h4 class='col-md-12'><small>" + tutorial.get('rating') + " (from "+ tutorial.get('votes') +")</small></h4></div>");
                                 },
                                 error: function (tutorial, error) {
 
