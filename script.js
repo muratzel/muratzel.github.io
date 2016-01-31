@@ -241,9 +241,9 @@ function populateModal(tutorial) {
         currentUser.save();
         updateClicksLeft();
         if ($("#activeButton").val().localeCompare('0'))
-            populateWithMyTutorials();
-        else
             populateWithViewedTutorials();
+        else
+            populateWithMyTutorials();
     }
 
     var query = new Parse.Query(Tutorial);
@@ -487,9 +487,9 @@ removeFromMyTutorialsModalButton.click( function(){
             }
         });
         if ($("#activeButton").val().localeCompare('0'))
-            populateWithMyTutorials();
-        else
             populateWithViewedTutorials();
+        else
+            populateWithMyTutorials();
     }
 );
 
@@ -512,9 +512,9 @@ addToMyTutorialsModalButton.click(function () {
         }
     });
     if ($("#activeButton").val().localeCompare('0'))
-        populateWithMyTutorials();
-    else
         populateWithViewedTutorials();
+    else
+        populateWithMyTutorials();
 }
 );
 
