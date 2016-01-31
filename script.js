@@ -142,7 +142,7 @@ function populateWithTutorials(startPage) {
                         }
                         if (score != 0 || keywords.length == 0) {
                             if (numTutorials >= (startPage - 1) * 10 && numTutorials < startPage * 10)
-                                mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + " votes)</small></h4></div>");
+                                mainPageTutorialsDisplayUl.append("<a href='#' class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4><h4 class='col-md-12'><small>" + tutorials[i].get('rating') + " (from " + tutorials[i].get('votes') + " votes)</small></h4></a>");
                             numTutorials = numTutorials + 1;                      
                         }
                         i = i + 1;
@@ -601,22 +601,6 @@ function deleteUsers() {
         }
     );
 }
-
-function readTextFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-readTextFile('Descriptions.txt');
 
 var currentUser = Parse.User.current();
 
