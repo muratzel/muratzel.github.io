@@ -2,6 +2,7 @@ Parse.initialize("EJ3swVy8iVnXKAO6XvT2LhGhYJ4BKLjFqRiuuxyX", "U5KZUB7IOm6JTwhdic
 
 //parse objects
 var Tutorial = Parse.Object.extend("Tutorial");
+var Bonus = Parse.Object.extend("Bonus");
 
 //form handles
 var loginForm = $("#loginForm");
@@ -174,6 +175,17 @@ function removeTag(tag) {
 }
 function updateClicksLeft() {
     var currentUser = Parse.User.current();
+    var query = new Parse.Query(Bonus);
+    query.equalTo("username", currentUser.get("username"));
+    query.find({
+            success: function (bonuses) {
+                currentUser.set("clicks_left", bonuses.length * 3 + currentUser.get('clicks_left'));
+                currentUser.save();
+            },
+            error: function (bonuses, error) {
+
+            }
+    });
     $('#clicksLeftP').html(currentUser.get("clicks_left"));
 }
 
@@ -369,22 +381,10 @@ voteModalButton.click(
 
                    if (rating >= 3) {
 
-                       Parse.Cloud.useMasterKey();
-                       var query = new Parse.Query(Parse.User);
-                       query.equalTo("username", tutorial.get("poster"));
-                       alert(tutorial.get("poster"));
-                       query.find({
-                           success: function (user) {
-                               alert(user.get("username"));
-                               user.set("clicks_left", user.get("clicks_left") + 2);
-                               user.save();
+                       var newBonus = new Bonus();
+                       newBonus.set("username", tutorial.get("poster"));
+                       newBonus.save();
 
-                               clearShowTutorialModal();
-                           },
-                           error: function (user, error) {
-
-                           }
-                       });
                    }
 
                },
