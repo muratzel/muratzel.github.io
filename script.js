@@ -208,6 +208,7 @@ function populateWithViewedTutorials() {
 
     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>Viewed Tutorials</b></h2></div>");
 
+    alert('aa');
     query.find(
         {
             success: function (tutorials) {
