@@ -168,6 +168,8 @@ function populateWithTutorials(startPage) {
 }
 function populateWithMyTutorials() {
 
+    mainPageMyTutorialsDisplayUl.empty();
+
     var query = new Parse.Query(Tutorial);
     var currentUser = Parse.User.current();
     var my_tutorials = currentUser.get('my_tutorials');
