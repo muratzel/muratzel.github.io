@@ -368,6 +368,8 @@ voteModalButton.click(
                    currentUser.save();
 
                    if (rating >= 3) {
+
+                       Parse.Cloud.useMasterKey();
                        var query = new Parse.Query(Parse.User);
                        query.equalTo("username", tutorial.get("poster"));
                        alert(tutorial.get("poster"));
