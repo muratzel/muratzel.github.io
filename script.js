@@ -121,7 +121,7 @@ function populateWithTutorials() {
                         var tutorialDescription = tutorials[i].get("description");
                         var tutorialTags = tutorials[i].get("tags");
                         var tutorialRating = tutorials[i].get("rating");
-                        var tutorialVoters = tutorials[i].get("voters");
+                        var tutorialVotes = tutorials[i].get("votes");
                         var tutorialId = tutorials[i].id;
 
                         for (var j = 0; j < keywords.length; j++) {
@@ -131,7 +131,7 @@ function populateWithTutorials() {
                                 else if (sortBy == 1)
                                     score = score + 5 * tutorialRating * tutorialRating;
                                 else
-                                    score = score + 5 * tutorialVoters;
+                                    score = score + 5 * tutorialVotes;
                             }
                             if (tutorialDescription.indexOf(keywords[j]) >= 0) {
                                 if (sortBy == 0)
@@ -139,7 +139,7 @@ function populateWithTutorials() {
                                 else if (sortBy == 1)
                                     score = score + 3 * tutorialRating * tutorialRating;
                                 else
-                                    score = score + 3 * tutorialVoters;
+                                    score = score + 3 * tutorialVotes;
                             }
                             if ($.inArray(keywords[j], tutorialTags) >= 0) {
                                 if (sortBy == 0)
@@ -147,7 +147,7 @@ function populateWithTutorials() {
                                 else if (sortBy == 1)
                                     score = score + 3 * tutorialRating * tutorialRating;
                                 else
-                                    score = score + 3 * tutorialVoters;
+                                    score = score + 3 * tutorialVotes;
                             }
                         }
                         if (score != 0){
@@ -156,8 +156,9 @@ function populateWithTutorials() {
                         else if (keywords.length == 0 && (sortBy == 0 || sortBy == 1)) {
                             scores.push([tutorialId, tutorialRating]);
                         }
-                        else{
-                            scores.push([tutorialId, tutorialVoters]);
+                        else {
+                            alert()
+                            scores.push([tutorialId, tutorialVotes]);
                         }
                     }
 
