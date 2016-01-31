@@ -110,10 +110,6 @@ function populateWithTutorials() {
         var query = new Parse.Query(Tutorial);
         query.containedIn("type", types);
 
-        alert(keywords);
-        alert(types);
-        alert(sortBy);
-
         query.find(
             {
                 success: function (tutorials) {
@@ -155,6 +151,7 @@ function populateWithTutorials() {
                             }
                         }
                         if (score != 0 || !keywords) {
+                            alert(keywords);
                             scores.push([tutorialId, score]);
                         }
                     }
@@ -166,7 +163,6 @@ function populateWithTutorials() {
         );
 
         scores.sort(function (a, b) { return a[1] - b[1] });
-        alert(scores);
 
         for (var i = 0; i < scores.length; i++) {
 
