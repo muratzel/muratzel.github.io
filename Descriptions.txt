@@ -1,0 +1,283 @@
+This tutorial introduces the reader informally to the basic concepts and features of 
+the Python language and system. It helps to have a Python interpreter handy&nbsp;...
+
+
+This tutorial introduces the reader informally to the basic concepts and features ... 
+but all examples are self-contained, so the tutorial can be read off-line as well.
+
+
+Python Tutorial for Beginners - Learning Python in simple and easy steps : A 
+beginner&#39;s tutorial containing complete knowledge of Python Syntax Object&nbsp;...
+
+
+This lesson will introduce you to Python, a general-purpose, object-oriented 
+interpreted language you can use for countless standalone projects or scripting&nbsp;...
+
+
+LearnPython.org is a free interactive Python tutorial for people who want to learn 
+Python, fast.
+
+
+Learn more about how to use Python for backend development, data science, 
+and more. Check out our Beginner and Intermediate Tutorials and start using&nbsp;...
+
+
+A Beginner&#39;s Python Tutorial. From Wikibooks, open books for an open world ... 
+Python-logo-notext.svg. Acknowledgments &middot; Lesson 0: Installing Python &middot; Lesson
+&nbsp;...
+
+
+A Python tutorial originally written for the modding community of Firaxis&#39; 
+Civilization. Useful to beginners with little or no programming knowledge.
+
+
+The Python Overview tutorial explains how to program using Python.
+
+
+Jan 16, 2014 - 9 min - Uploaded by onestopprogrammingThis Python Programming Tutorial covers the instillation python and setting up  the python ...
+
+
+Click on the &quot;Try it yourself&quot; button to see how it works. jQuery Examples. Learn 
+by examples! At W3Schools you will find a lot of jQuery examples to edit and test
+&nbsp;...
+
+
+jQuery: The Write Less, Do More, JavaScript Library.
+
+
+Interactive tutorial, introducing the library, its fundamentals, events and effects.
+
+
+jQuery Tutorial for Beginners - Learning JavaScript Framework in simple and 
+easy steps. A beginner&#39;s tutorial containing complete knowledge of jQuery&nbsp;...
+
+
+A complete jQuery tutorial, covering all the aspects and methods of this 
+JavaScript framework, including plenty of live examples for you to try...
+
+
+Mar 22, 2014 - 8 min - Uploaded by LearnCode.academyThis jQuery Tutorial for beginners will help you get jQuery on your page and get  up-to-speed ...
+
+
+Tips, techniques, and tutorials for the jQuery JavaScript library.
+
+
+Learn the basic building blocks of jQuery 2.0 and enjoy new video tutorials for 
+beginners with related programming challenges.
+
+
+Watch our jQuery tutorials and learn to use jQuery to create animations, dynamic 
+page formatting, and more. Learn how to add complex functionality to your site&nbsp;...
+
+
+jQuery Fundamentals is designed to get you comfortable working through 
+common problems you&#39;ll be called upon to solve using jQuery. To get the most 
+out of&nbsp;...
+
+
+Mar 3, 2015 ... The Java Tutorials are practical guides for programmers who want to use the 
+Java programming language to create applications. They include&nbsp;...
+
+
+This trail covers the fundamentals of programming in the Java programming 
+language. trail icon Object-Oriented Programming Concepts teaches you the 
+core&nbsp;...
+
+
+Java Tutorial for Beginners - Learning Java in simple and easy steps : A 
+beginner&#39;s tutorial containing complete knowledge of Java Syntax Object 
+Oriented&nbsp;...
+
+
+This course assumes no prior programming knowledge, just a desire to learn to program.
+ ... Introducing the Java for Complete Beginners course, and what you need to install in order to get started.
+ ... What should you do when you&#39;ve completed a basic Java course, and can you get a job with ...
+
+
+This Java tutorial is basically for Beginners who wants to learn java from basics. 
+Here you learn everything from installing JDK to Variable to operator to Access&nbsp;...
+
+
+Java Tutorial or Core Java Tutorial or Java Programming Tutorials for beginners 
+and professionals with core concepts and examples covers the basics and&nbsp;...
+
+
+This tutorial would help you learn java like a pro. We have shared 500+ tutorials 
+on various topics of java including basic java concepts, java programming.
+
+
+Dec 14, 2014 - 13 min - Uploaded by ProgrammingKnowledgejava examples for beginners java beginners tutorial mit java programmieren java ...
+
+
+LearnJavaOnline.org is a free interactive Java tutorial for people who want to 
+learn Java, fast.
+
+
+Java Tutorial. ... 1.Language. 1.1.Introduction( 17 ), 1.9.Variables( 6 ). 1.2.Java 
+Keywords( 1 ), 1.10.Variable Scope( 2 ). 1.3.Jar( 4 ), 1.11.Annotations Create( 4 ).
+
+
+Have you ever wondered what the difference is between speed and velocity? 
+Ever try to visualize in four dimensions or six or seven? Linear algebra describes
+&nbsp;...
+
+
+Linear algebra tutorial with online interactive programs.
+
+
+Abstract&#8212;This document will review the fundamental ideas of linear algebra. ... 
+The only prerequisite for this tutorial is a basic understanding of high school.
+
+
+Despite two linear algebra classes, my knowledge consisted of &quot;Matrices, 
+determinants, eigen something something&quot;. Why? Well, let&#39;s try this course.
+
+
+This chapter deals with the study of linear algebra and matrices as they are used 
+in this course. ... The following properties of matrix Algebra are easily verified.
+
+
+http://tutorial.math.lamar.edu/terms.asp. This document was ... Here are my online 
+notes for my Linear Algebra course that I teach here at Lamar. University.
+
+
+This tutorial is a brief, easy-to-understand introduction to matrix algebra, 
+emphasizing matrix ... Use matrix algebra to solve simultaneous linear equations.
+
+
+Introduction and Basic Operations &middot; Matrix Multiplication &middot; Algebraic Properties of 
+Matrix Operations &middot; Invertible ... Systems of linear equations in Three variables.
+
+
+Department of Mathematics. 11.2MH1 Linear Algebra Tutorials. EXAMPLES 1: 
+LINEAR SYSTEMS. -- (Postscript version) -- (PDF version). Solutions.
+
+
+Constructing Matrices Getting and Setting Pieces of Matrices Scalars, Vectors, 
+and Matrices.
+
+
+These tutorials explain the C++ language from its basics up to the newest 
+features introduced by C++11. Chapters have a practical orientation, with 
+example&nbsp;...
+
+
+C++ is a middle-level programming language developed by Bjarne Stroustrup starting in 1979 at Bell Labs.
+ ... This reference will take you through simple and practical approach while learning C++ Programming language.
+ This reference has been prepared for the beginners to help them ...
+
+
+If you&#39;re new to C++, I recommend you purchase my ebook, Jumping into C++, a complete step-by-step guide for beginners, which covers significantly more material than this free tutorial.
+ Introduction and Basic C++ Features.
+ ... Do some practice problems or view more tutorials.
+
+
+LearnCpp.com is a free website devoted to teaching you how to program in C++. 
+Whether you&#39;ve had any prior programming experience or not, the tutorials on&nbsp;...
+
+
+These tutorials were developed as part of a series of courses on C++ I taught at 
+the University of California, Irvine, Washington University, St. Louis, and&nbsp;...
+
+
+C++ is a popular programming language used for high performance ... In this 
+tutorial we will cover the basics of the older C++03 standard released in 2003,&nbsp;...
+
+
+Nov 20, 2014 - 71 min - Uploaded by Derek BanasGet the Cheat Sheet Here : http://goo.gl/OpJ209 Best Book on C++ ... C++  Programming ...
+
+
+Aug 3, 2013 - 34 min - Uploaded by Programming TutorialsC++ Programming Tutorial for Beginners in English - Part 1. Topics covered in  this tutorial ...
+
+
+How to program in the popular (and tricky!) C++ programming language, for 
+complete beginners. - Free Course.
+
+
+Step-by-step instructional guides for hands-on learning of programming in Unreal 
+Engine.
+
+
+Programming makes computers do what you want them to do. JavaScript is easy 
+to learn. This tutorial will teach you JavaScript from basic to advanced.
+
+
+JavaScript. Learn the fundamentals of JavaScript, the programming language of 
+the Web. Lessons. 0%. Quizzes. 9 available. Start&nbsp;...
+
+
+Javascript Tutorial - Learn Javascript in simple and easy steps. A beginner&#39;s 
+tutorial containing complete knowledge of Javascript Syntax Objects Embedding
+&nbsp;...
+
+
+JavaScript Tutorials. While, generally ... JavaScript Beginner Tutorial. An 
+introduction to programming in general, through the medium of JavaScript. 
+Making Stuff&nbsp;...
+
+
+Translation of a Russian tutorial, includes: JavaScript from the ground to closures
+, document and events, object oriented programming, timing, frames and&nbsp;...
+
+
+Nov 26, 2015 ... JavaScript (&quot;JS&quot; for short) is a full-fledged dynamic programming ... You can do 
+pretty much anything with JavaScript. ..... Learning tutorials.
+
+
+Click here for comprehensive JavaScript tutorials, and over 400+ free scripts!
+
+
+You can use this tutorial either as a complete introduction or as an A-Z reference 
+to JavaScript. The pages are packed with: Easy to understand explanations,&nbsp;...
+
+
+Jan 24, 2014 - 14 min - Uploaded by LearnCode.academyThis is part one of Javascript Programming. If you&#39;ve been wanting to learn  Javascript, this ...
+
+
+Welcome To JavaScript for the Total Non-Programmer. This tutorial will take you 
+step by step through the fundamentals of Javascript. You will learn how to write&nbsp;...
+
+
+
+
+
+Don&#39;t get excited by the fact that we are using two substitutions here. They will work the same way. Using these substitutions gives us the formula that most people think of as the integration by parts formula. To use this formula we will need to identify u and dv, compute du and v and then use the formula.
+
+
+Aug 12, 2014 - 4 minAnd from that, we&#39;re going to derive; the formula for integration by parts, which  could really ...
+
+
+by expanding the differential of a product of functions d(uv) and expressing the 
+original integral in terms of a known integral intvdu . A single integration by parts
+&nbsp;...
+
+
+Integration by Parts. where you identify the two functions f(x) and g(x). Note that if you are given only one function, then set the second one to be the constant function g(x)=1. Note that at this step, you have the choice whether to differentiate f(x) or g(x).
+
+
+In calculus, and more generally in mathematical analysis, integration by parts or 
+partial integration is a theorem that relates the integral of a product of functions&nbsp;...
+
+
+THE METHOD OF INTEGRATION BY PARTS. All of the following problems use 
+the method of integration by parts. This method uses the fact that the differential&nbsp;...
+
+
+Apr 4, 2008 - 9 min - Uploaded by patrickJMTBuy my book!: &#39;1001 Calculus Problems for Dummies&#39; - you can get it on my  website: http ...
+
+
+Integration by Parts is a special method of integration that is often useful when 
+two functions are multiplied together, but is also helpful in other ways. You will 
+see&nbsp;...
+
+
+Integration by Parts. We will use the Product Rule for derivatives to derive a 
+powerful integration formula: Start with (f(x)g(x)) =f(x)g (x)+f (x)g(x). Integrate both
+&nbsp;...
+
+
+Integration by parts mc-TY-parts-2009-1. A special rule, integration by parts, is 
+available for integrating products of two functions. This unit derives and illustrates
+&nbsp;...
+
+
