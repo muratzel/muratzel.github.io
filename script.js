@@ -254,6 +254,11 @@ addTutorialButton.click(function () {
             }
         }
     );
+
+    var currentUser = Parse.User.current();
+    currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
+    currentUser.save();
+
 });
 closeAddTutorialModalButton.click(
     function () {
@@ -346,6 +351,20 @@ voteModalButton.click(
                    tutorials_voted.push(tutorialIdModalInput.attr("value"));
                    currentUser.set("tutorials_voted", tutorials_voted);
                    currentUser.save();
+
+                   if (rating >= 3) {
+                       var query = new Parse.Query(Parse.User);
+                       query.equalTo("username", tutorial.get("poster"));  // find all the women
+                       query.find({
+                           success: function (user) {
+                               user.set("clicks_left", user.get("clicks_left") + 2);
+                               user.save();
+                           },
+                           error: function (user, error) {
+
+                           }
+                       });
+                   }
 
                },
                error: function (tutorial, error) {
