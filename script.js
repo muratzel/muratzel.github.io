@@ -88,6 +88,8 @@ function populateWithTutorials() {
         var researchPaper = $('#researchPaperCheckbox').is(':checked');
         var universityCourse = $('#universityCourseCheckbox').is(':checked');
 
+        var sortBy = $('#sortBySelect').val();
+
         var types = [];
         var scores = [];
 
