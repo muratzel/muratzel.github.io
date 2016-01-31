@@ -14,7 +14,7 @@ var tagListDiv = $('#tagListDiv');
 
 //lists handles
 var mainPageTutorialsDisplayUl = $('#mainPageTutorialsDisplayUl');
-var mainPageViewedTutorialsDisplayUl = $('#mainPageViewedTutorialsDisplayUl');
+var mainPageMyTutorialsDisplayUl = $('#mainPageMyTutorialsDisplayUl');
 
 //modal handles
 var tutorialTitleInput = $('#tutorialTitleInput');
@@ -58,7 +58,7 @@ function displayMainPage() {
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
     populateWithTutorials(1);
-    populateWithViewedTutorials();
+    populateWithMyTutorials();
 }
 function displayLoginForm() {
     loginForm.removeClass("hidden");
@@ -166,21 +166,21 @@ function populateWithTutorials(startPage) {
         );
 
 }
-function populateWithViewedTutorials() {
+function populateWithMyTutorials() {
 
     var query = new Parse.Query(Tutorial);
     var currentUser = Parse.User.current();
-    var tutorials_viewed = currentUser.get('tutorials_viewed');
+    var my_tutorials = currentUser.get('my_tutorials');
 
     query.descending("createdAt");
-    query.containedIn("objectId", tutorials_viewed);
-    mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>My Tutorials</b></h2></div>");
+    query.containedIn("objectId", my_tutorials);
+    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>My Tutorials</b></h2></div>");
 
     query.find(
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
-                    mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
+                    mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
                 }
             },
             error: function (tutorials, error) {
@@ -199,15 +199,20 @@ function populateModal(tutorial) {
     }
 
     var tutorials_viewed = currentUser.get('tutorials_viewed');
+    var my_tutorials = currentUser.get('my_tutorials');
+
     if ($.inArray($(tutorial).attr("id"), tutorials_viewed) < 0) {
         currentUser.set("clicks_left", currentUser.get("clicks_left") - 1);
         tutorials_viewed.push($(tutorial).attr("id"));
         currentUser.set("tutorials_viewed", tutorials_viewed);
+        my_tutorials.push($(tutorial).attr("id"));
+        currentUser.set("my_tutorials", my_tutorials);
     }
 
     currentUser.save(null, {
         success: function (user) {
             updateClicksLeft();
+            populateWithMyTutorials();
         },
         error: function (user, error) {
         }
@@ -325,6 +330,7 @@ signupButton.click(
             newUser.set("email", email);
             newUser.set("tutorials_voted", []);
             newUser.set("tutorials_viewed", []);
+            newUser.set("my_tutorials", []);
             newUser.set("clicks_left", 15);
 
             newUser.signUp(null, {
