@@ -602,9 +602,6 @@ function deleteUsers() {
     );
 }
 
-deleteTutorials();
-deleteUsers();
-
 var currentUser = Parse.User.current();
 
 
