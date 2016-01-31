@@ -177,6 +177,7 @@ function populateWithMyTutorials() {
 
     query.descending("createdAt");
     query.containedIn("objectId", my_tutorials);
+
     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>My Tutorials</b></h2></div>");
 
     query.find(
@@ -204,12 +205,14 @@ function populateWithViewedTutorials() {
 
     query.descending("createdAt");
     query.containedIn("objectId", viewed_tutorials);
+
     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item'><h2 class='col-md-12'><b>Viewed Tutorials</b></h2></div>");
 
     query.find(
         {
             success: function (tutorials) {
                 for (var i = 0; i < tutorials.length; i++) {
+                    alert();
                     mainPageMyTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
                 }
                 $('#activeButton').val('1');
