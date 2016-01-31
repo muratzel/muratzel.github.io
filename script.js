@@ -50,13 +50,14 @@ var addTagButton = $('#addTagButton');
 var addTutorialButton = $('#addTutorialButton');
 var closeAddTutorialModalButton = $('#closeAddTutorialModalButton');
 var logoutButton = $('#logoutButton');
+var searchButton = $('#searchButton');
 
 //display functions
 function displayMainPage() {
     loginForm.addClass("hidden");
     signupForm.addClass("hidden");
     mainPageDiv.removeClass("hidden");
-    populateWithTutorials();
+    populateWithTutorials(false,false);
     populateWithViewedTutorials();
 }
 function displayLoginForm() {
@@ -71,22 +72,117 @@ function displaySignupForm() {
 }
 
 //populate/depopulate stuff
-function populateWithTutorials() {
+function populateWithTutorials(filter,sortBy) {
     mainPageTutorialsDisplayUl.empty();
-    var query = new Parse.Query(Tutorial);
-    query.descending("createdAt");
-    query.find(
-        {
-            success: function (tutorials) {
-                for (var i = 0; i < tutorials.length; i++) {
-                    mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></div>");
-                }
-            },
-            error: function (schedules, error) {
+    if (!filter) {
+        var query = new Parse.Query(Tutorial);
+        query.descending("createdAt");
+        query.find(
+            {
+                success: function (tutorials) {
+                    for (var i = 0; i < tutorials.length; i++) {
+                        mainPageTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h3 class='col-md-12'>" + tutorials[i].get('title') + "</h3><h3 class='col-md-12'><small>" + tutorials[i].get('rating') + "(" + tutorials[i].get('votes') + " voters)</small></h3></div>");
+                    }
+                },
+                error: function (tutorials, error) {
 
+                }
             }
+        );
+    }
+    else {
+        var keywords = $('#seachInput').val().split(" ");
+        var writtenTutorial = $('#writtenTutorialCheckbox').is(':checked');
+        var videoTutorial = $('#videoTutorialCheckbox').is(':checked');
+        var researchPaper = $('#researchPaperCheckbox').is(':checked');
+        var universityCourse = $('#universityCourseCheckbox').is(':checked');
+
+        var types = [];
+        var scores = [];
+
+        if (!writtenTutorial && !videoTutorial && !researchPaper && !universityCourse) {
+            types = ["Written Tutorial", "Video Tutorial", "Research Paper", "University Course"];
         }
-    );
+        else {
+            if (writtenTutorial)
+                types.push("Written Tutorial");
+            if (videoTutorial)
+                types.push("Video Tutorial");
+            if (researchPaper)
+                types.push("Research Paper");
+            if (universityCourse)
+                types.push("University Course");
+        }
+
+        var query = new Parse.Query(Tutorial);
+        query.containedIn("type", types);
+
+        query.find(
+            {
+                success: function (tutorials) {
+                    for (var i = 0; i < tutorials.length; i++) {
+                        var score = 0;
+                        var tutorialTitle = tutorials[i].get("title");
+                        var tutorialDescription = tutorials[i].get("description");
+                        var tutorialTags = tutorials[i].get("tags");
+                        var tutorialRating = tutorial[i].get("rating");
+                        var tutorialVoters = tutorials[i].get("voters");
+                        var tutorialId = tutorial[i].id;
+
+                        for (var j = 0; j < keywords.length; j++) {
+                            if (tutorialTitle.indexOf(keywords[j]) >= 0){
+                                if (sortBy == 0)
+                                    score = score + 5;
+                                else if (sortBy == 1)
+                                    score = score + 5 * tutorialRating * tutorialRating;
+                                else
+                                    score = score + 5 * tutorialVoters;
+                            }
+                            if (tutorialDescription.indexOf(keywords[j]) >= 0) {
+                                if (sortBy == 0)
+                                    score = score + 3;
+                                else if (sortBy == 1)
+                                    score = score + 3 * tutorialRating * tutorialRating;
+                                else
+                                    score = score + 3 * tutorialVoters;
+                            }
+                            if ($.inArray(keywords[j], tutorialTags) >= 0) {
+                                if (sortBy == 0)
+                                    score = score + 3;
+                                else if (sortBy == 1)
+                                    score = score + 3 * tutorialRating * tutorialRating;
+                                else
+                                    score = score + 3 * tutorialVoters;
+                            }
+                        }
+                        if (score != 0) {
+                            scores.push([tutorial.id, score]);
+                        }
+                    }
+                },
+                error: function (tutorials, error) {
+
+                }
+            }
+        );
+
+        scores.sort(function (a, b) { return a[1] - b[1] });
+
+        for (var i = 0; i < scores.length; i++) {
+
+            var query = new Parse.Query(Tutorial);
+            query.get(scores[i][0],
+                {
+                    success: function (tutorial) {
+                            mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorial.id + "'><h4 class='col-md-12'>" + tutorial.get('title') + "</h4></div>");
+                    },
+                    error: function (tutorial, error) {
+
+                    }
+                }
+            );
+        }
+    }
 }
 function populateWithViewedTutorials() {
 
@@ -105,7 +201,7 @@ function populateWithViewedTutorials() {
                     mainPageViewedTutorialsDisplayUl.append("<div class='row list-group-item' onclick = 'populateModal(this);' id='" + tutorials[i].id + "'><h4 class='col-md-12'>" + tutorials[i].get('title') + "</h4></div>");
                 }
             },
-            error: function (schedules, error) {
+            error: function (tutorials, error) {
 
             }
         }
@@ -289,7 +385,7 @@ addTutorialButton.click(function () {
     newTutorial.save(null,
         {
             success: function (tutorial) {
-                populateWithTutorials();
+                populateWithTutorials(true,true);
                 var currentUser = Parse.User.current();
                 currentUser.set("clicks_left", currentUser.get("clicks_left") + 10);
                 currentUser.save();
