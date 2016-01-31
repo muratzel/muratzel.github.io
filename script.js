@@ -123,7 +123,9 @@ function populateWithTutorials() {
                         var tutorialRating = tutorials[i].get("rating");
                         var tutorialVotes = tutorials[i].get("votes");
                         var tutorialId = tutorials[i].id;
-
+                        alert(keywords[0]);
+                        alert(tutorialTitle);
+                        alert(tutorialTitle.indexOf(keywords[0]))
                         for (var j = 0; j < keywords.length; j++) {
                             if (tutorialTitle.indexOf(keywords[j]) >= 0){
                                 if (sortBy == 0)
