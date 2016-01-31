@@ -152,7 +152,6 @@ function populateWithTutorials() {
                         }
                         if (score != 0 || keywords.length == 0) {
                             scores.push([tutorialId, score]);
-                            alert(scores);
                         }
                     }
                 },
@@ -164,6 +163,7 @@ function populateWithTutorials() {
 
         alert(scores);
         scores.sort(function (a, b) { return a[1] - b[1] });
+        alert(scores);
 
         for (var i = 0; i < scores.length; i++) {
 
