@@ -129,11 +129,11 @@ function populateWithTutorials() {
                         for (var j = 0; j < keywords.length; j++) {
                             if (tutorialTitle.indexOf(keywords[j]) >= 0){
                                 if (sortBy == 0)
-                                    score = score + 5;
+                                    score = score + 5 * (tutorialRating+0.2);
                                 else if (sortBy == 1)
-                                    score = score + 5 * tutorialRating * tutorialRating;
+                                    score = score + 5 * (tutorialRating+0.2) * (tutorialRating+0.2);
                                 else
-                                    score = score + 5 * tutorialVotes;
+                                    score = score + 5 * (tutorialVotes+0.2);
                             }
                             if (tutorialDescription.indexOf(keywords[j]) >= 0) {
                                 if (sortBy == 0)
