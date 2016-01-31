@@ -78,11 +78,9 @@ function populateWithTutorials() {
         
         if ($('#seachInput').val()) {
             var keywords = $('#seachInput').val().split(" ");
-            alert(1);
         }
         else {
             var keywords = [];
-            alert(2);
         }
 
         var writtenTutorial = $('#writtenTutorialCheckbox').is(':checked');
@@ -109,6 +107,8 @@ function populateWithTutorials() {
 
         var query = new Parse.Query(Tutorial);
         query.containedIn("type", types);
+
+        alert(types);
 
         query.find(
             {
