@@ -155,7 +155,7 @@ function populateWithTutorials() {
                             }
                         }
                         if (score != 0 || !keywords) {
-                            scores.push([tutorial.id, score]);
+                            scores.push([tutorialId, score]);
                         }
                     }
                 },
