@@ -57,7 +57,7 @@
                 <div class="col-sm-12">
                     <div id="mainPageSearchDiv" class="col-sm-12 well">
                         <form class="form-vertical">
-                            <div class="row form- col-xs-12">
+                            <div class="row form-group">
                                 <input class="form-control input-lg" id="searchInput" placeholder="What do you want to learn about today?" />
                             </div>
                             <div class="row form-group">
@@ -74,7 +74,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-xs-6">
-                                    <button type="button" id="searchButton" onclick="populateWithTutorials(1);" class="btn btn-primary pull-right">Search</button>
+                                    <button type="button" id="searchButton" onclick="populateWithTutorials(1);" class="btn-primary largeButton pull-right">Search</button>
                                 </div>
                             </div>
                         </form>
@@ -95,21 +95,21 @@
                     <div id="mainPageLogoutDiv" class="col-sm-2 well">
                         <button type="button" id="logoutButton" class="btn-primary largeButton">Logout</button>
                     </div>
-              </div>
-                    <div class="col-sm-12">
-                        <div id="mainPageContentDiv" class="col-sm-8">
-                            <div class="list-group" id="mainPageTutorialsDisplayUl">
-                            </div>
-                        </div>
-                        <div id="mainPageMyTutorialsDiv" class="col-sm-offset-1 col-sm-3 text-center">
-                            <div class="list-group" id="mainPageMyTutorialsDisplayUl">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <ul id="pageUl" class="pagination"></ul>
-                    </div>
                 </div>
+                <div class="col-sm-12">
+                     <div id="mainPageContentDiv" class="col-sm-8">
+                         <div class="list-group" id="mainPageTutorialsDisplayUl">
+                         </div>
+                     </div>
+                     <div id="mainPageMyTutorialsDiv" class="col-sm-offset-1 col-sm-3 text-center">
+                         <div class="list-group" id="mainPageMyTutorialsDisplayUl">
+                         </div>
+                     </div>
+                </div>
+                <div class="col-sm-12">
+                    <ul id="pageUl" class="pagination"></ul>
+                </div>
+           </div>
         </div>
 
         <!--Modals-->
