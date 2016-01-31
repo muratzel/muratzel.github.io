@@ -17,7 +17,7 @@
     <body>
         <div class = "container">
             <div class = "page-header text-center">
-                <h1>Why Pay for College</h1>
+                <h1 class="title"><span style="color: red;">W</span>hy <span style="color: red;">P</span>ay for <span style="color: red;">C</span>ollege</h1>
             </div>
             <form id="loginForm" class="form-horizontal login">
                 <div id="loginDiv" class="col-md-6 col-md-offset-3">
@@ -54,57 +54,68 @@
                 </div>
             </form>
             <div id= "mainPageDiv">
-                <div id="mainPageMenuDiv" class="col-sm-12 well">
-                    <button type="button" id="openAddTutorialButton" data-toggle ="modal" data-target="#addTutorialModal" class="btn btn-primary btn-lg col-md-offset-1 ">Add Tutorial</button>
-                    <button type="button" onclick ="populateWithViewedTutorials();" id="viewedTutorialsButton" class="btn btn-primary btn-lg col-md-offset-1 ">Viewed Tutorials</button>
-                    <button type="button" onclick ="populateWithMyTutorials();" id="myTutorialsButton" class="btn btn-primary btn-lg col-md-offset-1 ">My Tutorials</button>
-                    <button type="button" id="logoutButton" class="btn btn-primary btn-lg col-md-offset-1 pull-right">Logout</button>
-                </div>
                 <div class="col-sm-12">
-                    <div id="mainPageSearchDiv" class="col-sm-8 well">
+                    <div id="mainPageSearchDiv" class="col-sm-12 well">
                         <form class="form-vertical">
                             <div class="row form- col-xs-12">
                                 <input class="form-control input-lg" id="searchInput" placeholder="What do you want to learn about today?" />
                             </div>
-                            <div class="row form-group col-xs-12">
-                                <label class="checkbox-inline"><input type="checkbox" id ="writtenTutorialCheckbox" value="Written Tutorial">Written Tutorial</label>
-                                <label class="checkbox-inline"><input type="checkbox" id ="videoTutorialCheckbox" value="Video Tutorial">Video Tutorial</label>
-                                <label class="checkbox-inline"><input type="checkbox" id ="researchPaperCheckbox" value="Research Paper">Research Paper</label>
-                                <label class="checkbox-inline"><input type="checkbox" id ="universityCourseCheckbox" value="University Course">University Course</label>
+                            <div class="row form-group">
+                                <label class="checkbox-inline"><input type="checkbox" id="writtenTutorialCheckbox" value="Written Tutorial">Written Tutorial</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="videoTutorialCheckbox" value="Video Tutorial">Video Tutorial</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="researchPaperCheckbox" value="Research Paper">Research Paper</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="universityCourseCheckbox" value="University Course">University Course</label>
                             </div>
                             <div class="row form-group">
                                 <div class="form-group col-xs-6">
-                                    <select class ="form-control" id="sortBySelect">
+                                    <select class="form-control" id="sortBySelect">
                                         <option value="0">Quality</option>
                                         <option value="1">Popularity</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-xs-6">
-                                    <button type="button" id="searchButton" onclick = "populateWithTutorials(1);" class="btn btn-primary pull-right">Search</button>
+                                    <button type="button" id="searchButton" onclick="populateWithTutorials(1);" class="btn btn-primary pull-right">Search</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div id="mainPageClicksLeftDiv" class="col-sm-offset-1 col-sm-3 text-center well">
+                    <div id="mainPageMenuDiv" class="col-sm-2 well">
+                        <button type="button" id="openAddTutorialButton" data-toggle="modal" data-target="#addTutorialModal" class="btn-primary largeButton">Add Tutorial</button>
+                    </div>
+                    <div id="mainPageClicksLeftDiv" class="col-sm-offset-1 col-sm-3 text-center well pull-right">
                         <h4 class="col-sm-12">Clicks Left</h4>
-                        <h3 id="clicksLeftP" class="col-sm-12"></h3>
+                        <h3 id="clicksLeftP" class="col-sm-12" style="font-size: 50px;"></h3>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div id="mainPageContentDiv" class="col-sm-8">
-                        <div class="list-group" id="mainPageTutorialsDisplayUl">
+                    <div id="additionalButton1" class="col-sm-2 well">
+                        <button type="button" onclick="populateWithViewedTutorials();" id="viewedTutorialsButton" class="btn-primary largeButton">Viewed Tutorials</button>
+                    </div>
+                    <div id="additionalButton2" class="col-sm-2 well">
+                        <button type="button" onclick="populateWithMyTutorials();" id="myTutorialsButton" class="btn-primary largeButton">My Tutorials</button>
+                    </div>
+                    <div id="mainPageLogoutDiv" class="col-sm-2 well">
+                        <button type="button" id="logoutButton" class="btn-primary largeButton">Logout</button>
+                    </div>
+              </div>
+                    <div class="col-sm-12">
+                        <div id="mainPageClicksLeftDiv" class="col-sm-offset-1 col-sm-3 text-center well">
+                            <h4 class="col-sm-12">Clicks Left</h4>
+                            <h3 id="clicksLeftP" class="col-sm-12"></h3>
                         </div>
                     </div>
-                    <div id="mainPageMyTutorialsDiv" class="col-sm-offset-1 col-sm-3 text-center">
-                        <div class="list-group" id="mainPageMyTutorialsDisplayUl">
+                    <div class="col-sm-12">
+                        <div id="mainPageContentDiv" class="col-sm-8">
+                            <div class="list-group" id="mainPageTutorialsDisplayUl">
+                            </div>
+                        </div>
+                        <div id="mainPageMyTutorialsDiv" class="col-sm-offset-1 col-sm-3 text-center">
+                            <div class="list-group" id="mainPageMyTutorialsDisplayUl">
+                            </div>
                         </div>
                     </div>
+                    <div class="col-sm-12">
+                        <ul id="pageUl" class="pagination"></ul>
+                    </div>
                 </div>
-                <div class="col-sm-12">
-                    <ul id ="pageUl" class="pagination">
-                    </ul>
-                </div>
-            </div>
         </div>
 
         <!--Modals-->
