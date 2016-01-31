@@ -444,22 +444,23 @@ ratingModalSpan.click(
 
 removeFromMyTutorialsModalButton.click( function(){
     
-    var query = new Parse.Query(Tutorial);
-    query.get(tutorialIdModalInput.attr("value"),
-    {
-        success: function (tutorial) {
+        var query = new Parse.Query(Tutorial);
+        query.get(tutorialIdModalInput.attr("value"),
+        {
+            success: function (tutorial) {
 
-            var currentUser = Parse.User.current();
-            var my_tutorials = currentUser.get("my_tutorials");
-            my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials),1);
-            currentUser.set("my_tutorials", my_tutorials);
-            currentUser.save();
-            populateWithMyTutorials();
+                var currentUser = Parse.User.current();
+                var my_tutorials = currentUser.get("my_tutorials");
+                my_tutorials.splice($.inArray(tutorialIdModalInput.attr("value"), my_tutorials), 1);
+                currentUser.set("my_tutorials", my_tutorials);
+                currentUser.save();
+                populateWithMyTutorials();
 
-        },
-        error: function (tutorial, error) {
+            },
+            error: function (tutorial, error) {
 
-        }
+            }
+        });
     }
 );
 
